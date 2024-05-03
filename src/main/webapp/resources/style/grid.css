@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+	display: grid;
+	grid-template-rows: 120px auto 150px;
+	min-height: 100vh;
+}
+
+body > header {
+	background-color: #5BBCFF;
+}
+
+body > header > div#top {
+    display: flex;
+    align-items: center;
+}
+
+body > header > div#top > nav > ul {
+	display: flex;
+	gap: 50px;
+	list-style: none;
+}
+
+body > header > div#top > ul {
+	display: flex;
+	gap: 50px;
+	list-style: none;
+}
+

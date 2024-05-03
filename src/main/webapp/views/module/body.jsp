@@ -6,8 +6,16 @@
 <meta charset="UTF-8">
 </head>
 <body>
+	<div>광고배너</div>
 	<section>
-		<div>광고배너</div>
+		<div>차량 이미지</div>
+		<div>차량 정보</div>
+	</section>
+	<section>
+		<div>차량 이미지</div>
+		<div>차량 정보</div>
+	</section>
+	<section>
 		<div>차량 이미지</div>
 		<div>차량 정보</div>
 	</section>

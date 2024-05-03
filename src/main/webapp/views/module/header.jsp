@@ -5,19 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="https://cdn-icons-png.freepik.com/256/6301/6301186.png?ga=GA1.1.283867284.1714552356&semt=ais_hybrid">
+<link rel="stylesheet" href="/resources/style/grid.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <title>Ming Car</title>
 </head>
 <body>
-	<h1>Ming Car</h1>
 	<header>
-		<div>
+		<div id="top">
+			<h1>Ming Car</h1>
+			<nav>
+				<ul>
+					<li><a href="about:blank">마이 페이지</a></li>
+					<li><a href="about:blank">예약</a></li>
+					<li><a href="about:blank">게시판</a></li> 
+				</ul>
+			</nav>
 			<ul>
-				<li>마이 페이지</li>
-				<li>예약</li>
-				<li>게시판</li> 
-				<li>로그인</li>
-				<li>회원가입</li>
+				<li><a href="about:blank">로그인</a></li> 
+				<li><a href="about:blank">회원가입</a></li>
 			</ul>
 		</div>
 	</header>
