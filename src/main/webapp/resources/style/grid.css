@@ -27,3 +27,7 @@ body > header > div#top > ul {
 	list-style: none;
 }
 
+body > footer {
+	background-color: #FFFAB7;
+}
+
