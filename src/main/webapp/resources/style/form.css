@@ -34,7 +34,7 @@ form > input[type="submit"] {
 	margin: 0;
 	border: none;
 	border-radius: 10px;
-	background-color: #5356FF;
+	background-color: #5BBCFF;
 }
 
 form > div > select {
@@ -64,7 +64,7 @@ form > div > input:focus,
 form > div > select:focus,
 form > div > input:last-child:focus
 {
-	border: solid 1px #5356FF;
+	border: solid 1px #5BBCFF;
 }
 
 form > div > input:focus + input, 
@@ -101,11 +101,9 @@ form > div > input:last-child {
 }
 
 #gender-man:checked ~ div > #gender-man-label, 
-#gender-woman:checked ~ div > #gender-woman-label, 
-#country-local:checked ~ div > #country-local-label, 
-#country-foreigner:checked ~ div > #country-foreigner-label
+#gender-woman:checked ~ div > #gender-woman-label
 {
-	color: #5356FF;
+	color: #5BBCFF;
 }
 
 label > div {
@@ -132,19 +130,4 @@ label:last-child > div {
 	font-size: 0.8em;
 	line-height: 1.5em;
 	text-align: left;
-}
-
-#agree,
-.error-container > p {
-	display: none;
-}
-
-#agree-label > p {
-	font-size: 0.8em;
-	margin: 6px 0;
-}
-
-#agree-label > p > b {
-	color: #5356FF;
-	font-weight: bold;
 }
