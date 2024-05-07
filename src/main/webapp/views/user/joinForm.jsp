@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/resources/style/form.css">
 <meta charset="UTF-8">
 </head>
+<c:import url="/header" />
 <body>
 	<section id="root">
 		<h2>회원가입</h2>
@@ -22,6 +24,7 @@
 			<div>
 				<input type="text" id="name" name="name" placeholder="이름">
 				<input type="text" id="birth" name="birth" placeholder="생년월일 8자리">
+				<input type="text" id="phone" name="phone" placeholder="휴대전화번호">
 				<div id="radio-container">
 					<input type="radio" class="gender" id="gender-man" name="gender" value="M">
 					<input type="radio" class="gender" id="gender-woman" name="gender" value="F">
@@ -30,7 +33,6 @@
 						<label for="gender-woman" id="gender-woman-label"><div>여자</div></label>
 					</div>
 				</div>
-				<input type="text" id="phone" name="phone" placeholder="휴대전화번호">
 			</div>
 			<div class="error-container">
 				<p class="error-msg" id="error-msg-name">* 이름: 필수 정보입니다.</p>
@@ -44,4 +46,5 @@
 		</form>
 	</section>
 </body>
+<c:import url="/footer" />
 </html>

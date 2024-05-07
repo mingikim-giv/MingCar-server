@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/resources/style/grid.css">
 <meta charset="UTF-8">
 </head>
 <body>
-	<div>광고배너</div>
+	<div>
+		<div>광고 배너</div>
+	</div>
 	<section>
 		<div>차량 이미지</div>
 		<div>차량 정보</div>
