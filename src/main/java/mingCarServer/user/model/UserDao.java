@@ -19,9 +19,7 @@ public class UserDao {
 	// Singleton Pattern 적용
 	
 	// 1. 생성자를 private으로
-	private UserDao() {
-//		setConnection();
-	}
+	private UserDao() {}
 	
 	// 2. 단일 인스턴스를 생성 (클래스 내부에서)
 	private static UserDao instance = new UserDao();
@@ -78,6 +76,13 @@ public class UserDao {
 			
 			rs = pstmt.executeQuery();
 			
+			if(rs.next()) {
+				String email = rs.getString(2);
+				String name = rs.getString(3);
+				String birth = rs.getString(4);
+				String phone = rs.getString(5);
+				String gender = rs.getString(6);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
