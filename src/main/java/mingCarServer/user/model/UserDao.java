@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import mingCarServer.util.PasswordCrypto;
 import mingCarServer.util.DBManager;
 import mingCarServer.user.model.UserRequestDto;
 import mingCarServer.user.model.UserResponseDto;
@@ -36,7 +37,7 @@ public class UserDao {
 			conn = DBManager.getConnection();
 			
 			// 쿼리할 준비
-			String sql = "SELECT id, email, name, birth, phone, gender FROM users";
+			String sql = "SELECT user_id, email, name, birth, phone, gender FROM users";
 			pstmt = conn.prepareStatement(sql);
 			
 			// 쿼리 실행
@@ -70,7 +71,7 @@ public class UserDao {
 		try {
 			conn = DBManager.getConnection();
 			
-			String sql = "SELECT id, email, name, birth, phone, gender FROM users WHERE id=?";
+			String sql = "SELECT user_id, email, name, birth, phone, gender FROM users WHERE user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
@@ -82,6 +83,13 @@ public class UserDao {
 				String birth = rs.getString(4);
 				String phone = rs.getString(5);
 				String gender = rs.getString(6);
+				String encryptedPassword = rs.getString(7);
+				
+				if(PasswordCrypto.decrypt(password, encryptedPassword)) {
+					// user 초기화
+					user = new UserResponseDto(id, email, name, birth, phone, gender);
+					return user;
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,11 +106,11 @@ public class UserDao {
 	public UserResponseDto createUser(UserRequestDto userDto) {
 		try {
 			conn = DBManager.getConnection();
-			String sql = "INSERT INTO  users(id, password, email, name, birth, phone, gender) VALUES(?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO  users(user_id, password, email, name, birth, phone, gender) VALUES(?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, userDto.getId());
-			pstmt.setString(2, userDto.getPassword());
+			pstmt.setString(2, PasswordCrypto.encrypt(userDto.getPassword()));
 			
 			String email = userDto.getEmail().equals("") ? null : userDto.getEmail();
 			pstmt.setString(3, email);
