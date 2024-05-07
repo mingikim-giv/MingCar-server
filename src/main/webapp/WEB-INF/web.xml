@@ -36,4 +36,13 @@
 		<servlet-name>footer</servlet-name>
 		<url-pattern>/footer</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>joinForm</servlet-name>
+		<jsp-file>/views/user/joinForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>joinForm</servlet-name>
+		<url-pattern>/join</url-pattern>
+	</servlet-mapping>
 </web-app>

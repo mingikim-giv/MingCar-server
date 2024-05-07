@@ -11,8 +11,18 @@ body > header {
 }
 
 body > header > div#top {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-areas: "h1 nav ul";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+body > header > div#top > h1 {
+	grid-area: h1;
+}
+body > header > div#top > nav {
+	grid-area: nav;
+	display: flex;
+	align-items: center;
 }
 
 body > header > div#top > nav > ul {
@@ -22,8 +32,15 @@ body > header > div#top > nav > ul {
 }
 
 body > header > div#top > ul {
+	grid-area: ul;
 	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 	gap: 50px;
 	list-style: none;
+}
+
+body > footer {
+	background-color: #FFFAB7;
 }
 
