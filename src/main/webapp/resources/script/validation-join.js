@@ -106,9 +106,9 @@ $(document).ready(() => {
 		const name = $('#name').val();
 		const birth = $('#birth').val();
 		
-		const gender = e.target.gender.value;
-		
 		const phone = $('#phone').val();
+		
+		const gender = e.target.gender.value;
 		
 		// 유효성 검사 
 		let isValid = true;
@@ -133,17 +133,17 @@ $(document).ready(() => {
 			$('#error-msg-birth').show();
 			$('#birth').css('border', 'solid 1px tomato');
 		}
+		if(phone === "") {
+			isValid = false;
+			$('#error-msg-phone').show();
+			$('#phone').css('border', 'solid 1px tomato');
+		}
 		if(gender === "") {
 			isValid = false;
 			$('#error-msg-gender').show();
 			$('#radio-container').css('border', 'solid 1px tomato');
 			$('#gender-man-label').css('border', 'solid 1px tomato');
 			$('#gender-woman-label').css('border', 'solid 1px tomato');
-		}
-		if(phone === "") {
-			isValid = false;
-			$('#error-msg-phone').show();
-			$('#phone').css('border', 'solid 1px tomato');
 		}
 		
 		if(isValid) {

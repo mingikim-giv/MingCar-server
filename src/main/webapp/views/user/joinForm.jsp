@@ -8,6 +8,7 @@
 </head>
 <c:import url="/header" />
 <script src="/resources/script/validation-join.js"></script>
+<script src="/resources/script/validation-id.js"></script>
 <body>
 	<section id="root">
 		<h2>회원가입</h2>
