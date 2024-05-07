@@ -96,6 +96,29 @@ public class UserDao {
 	}
 	
 	public UserResponseDto createUser(UserRequestDto userDto) {
+		try {
+			conn = DBManager.getConnection();
+			String sql = "INSERT INTO  users(id, password, email, name, birth, phone, gender) VALUES(?, ?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, userDto.getId());
+			pstmt.setString(2, userDto.getPassword());
+			
+			String email = userDto.getEmail().equals("") ? null : userDto.getEmail();
+			pstmt.setString(3, email);
+			
+			pstmt.setString(4, userDto.getName());
+			pstmt.setString(5, userDto.getBirth());
+			pstmt.setString(9, userDto.getPhone());
+			pstmt.setString(6, userDto.getGender());
+			
+			pstmt.execute();
+			return findUserByIdAndPassword(userDto.getId(), userDto.getPassword());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
 		return null;
 	}
 }
