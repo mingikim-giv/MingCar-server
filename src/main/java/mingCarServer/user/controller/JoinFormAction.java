@@ -14,7 +14,6 @@ import mingCarServer.user.model.UserResponseDto;
 /**
  * Servlet implementation class JoinFormAction
  */
-@WebServlet("/JoinFormAction")
 public class JoinFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -77,9 +76,6 @@ public class JoinFormAction extends HttpServlet {
 				// 성공
 				response.sendRedirect("/login");		
 			}
-		}
-		else {
-			response.sendRedirect("/join");
 		}
 	}
 

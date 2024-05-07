@@ -14,7 +14,6 @@ import mingCarServer.user.model.UserResponseDto;
 /**
  * Servlet implementation class LoginFormAction
  */
-@WebServlet("/LoginFormAction")
 public class LoginFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,16 +54,16 @@ public class LoginFormAction extends HttpServlet {
 			// 로그인 처리 후, 페이지 이동		(jsp 내장객체 중 session에 유저정보 저장)
 			
 			UserDao userDao = UserDao.getInstance();
-//			UserResponseDto user = userDao.findUserByIdAndPassword(id, password);
-//			
-//			HttpSession session = request.getSession();
-//			
-//			if(user != null) {
-//				session.setAttribute("user", user);
-//				response.sendRedirect("/mypage");				
-//			} else {
-//				response.sendRedirect("/login");				
-//			}
+			UserResponseDto user = userDao.findUserByIdAndPassword(id, password);
+			
+			HttpSession session = request.getSession();
+			
+			if(user != null) {
+				session.setAttribute("user", user);
+				response.sendRedirect("/mypage");				
+			} else {
+				response.sendRedirect("/login");				
+			}
 		} else {
 			response.sendRedirect("/login");
 		}

@@ -109,8 +109,8 @@ public class UserDao {
 			
 			pstmt.setString(4, userDto.getName());
 			pstmt.setString(5, userDto.getBirth());
-			pstmt.setString(9, userDto.getPhone());
-			pstmt.setString(6, userDto.getGender());
+			pstmt.setString(6, userDto.getPhone());
+			pstmt.setString(7, userDto.getGender());
 			
 			pstmt.execute();
 			return findUserByIdAndPassword(userDto.getId(), userDto.getPassword());
