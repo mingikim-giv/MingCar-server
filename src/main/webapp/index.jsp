@@ -6,7 +6,7 @@
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
-	<jsp:include page="/body"></jsp:include>
+	<h1>MingCar</h1>
 </body>
 <jsp:include page="/footer"></jsp:include>
 </html>
