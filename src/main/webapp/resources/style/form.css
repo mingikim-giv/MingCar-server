@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+section {
+	margin: auto;	
+}
+
 form {
 	display: flex;
 	flex-direction: column;
@@ -19,12 +23,6 @@ form > div:nth-last-child(2)
 {
 	width: 400px;
 	padding: 12px;
-}
-
-form > div:nth-last-child(2)
-{
-	border-radius: 10px;
-	border: solid 1px lightgrey;
 }
 
 form > input[type="submit"] {
@@ -130,4 +128,8 @@ label:last-child > div {
 	font-size: 0.8em;
 	line-height: 1.5em;
 	text-align: left;
+}
+
+.error-container > p {
+	display: none;
 }

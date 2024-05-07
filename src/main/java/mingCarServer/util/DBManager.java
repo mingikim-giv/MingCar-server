@@ -15,7 +15,7 @@ public class DBManager {
 		
 		try {
 			Context init = new InitialContext();
-			DataSource source = (DataSource) init.lookup("java:comp/env/jdbc/mingCarServerDB");
+			DataSource source = (DataSource) init.lookup("java:comp/env/jdbc/RentCarDB");
 			
 			conn = source.getConnection();
 			
