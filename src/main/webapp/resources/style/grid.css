@@ -31,6 +31,15 @@ body > header > div#top > nav > ul {
 	list-style: none;
 }
 
+body > header > div#top > nav > ul > li > a {
+	color: black;
+	text-decoration: none;	
+}
+
+body > header > div#top > nav > ul > li > a:hover {
+	color: #FFFAB7;
+}
+
 body > header > div#top > ul {
 	grid-area: ul;
 	display: flex;

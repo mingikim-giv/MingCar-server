@@ -1,5 +1,10 @@
 package mingCarServer.user.model;
 
+import java.sql.SQLException;
+
+import mingCarServer.user.model.UserRequestDto;
+import mingCarServer.user.model.UserResponseDto;
+
 public class UserDao {
 	// UserDao 객체를 단일 인스턴스로 만들기 위해
 	// Singleton Pattern 적용
@@ -15,5 +20,9 @@ public class UserDao {
 	// 3. 단일 인스턴스에 대한 getter
 	public static UserDao getInstance() {
 		return instance;
+	}
+	
+	public UserResponseDto createUser(UserRequestDto userDto) {
+		return null;
 	}
 }
