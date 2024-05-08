@@ -62,10 +62,6 @@ public class UpdateFormAction extends HttpServlet {
 			String phone = request.getParameter("phone");
 			
 			// if-else 아니므로 전부 다 변경시 모두 호출 됨
-			if(!newPassword.equals("") && !newPassword.equals(password)) {
-				userDao.updateUserPassword(userDto, newPassword);
-			}
-			
 			if(!email.equals(user.getEmail() == null ? "" : user.getEmail())) {
 				userDto.setEmail(email);
 				
@@ -76,6 +72,10 @@ public class UpdateFormAction extends HttpServlet {
 			if(!phone.equals(user.getPhone())) {
 				userDto.setPhone(phone);
 				user = userDao.updateUserPhone(userDto);
+			}
+			
+			if(!newPassword.equals("") && !newPassword.equals(password)) {
+				userDao.updateUserPassword(userDto, newPassword);
 			}
 		}
 		
