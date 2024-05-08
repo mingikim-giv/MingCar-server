@@ -112,4 +112,13 @@
 		<servlet-name>myPage</servlet-name>
 		<url-pattern>/mypage</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>boardForm</servlet-name>
+		<jsp-file>/views/board/boardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardForm</servlet-name>
+		<url-pattern>/board</url-pattern>
+	</servlet-mapping>
 </web-app>
