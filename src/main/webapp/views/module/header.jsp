@@ -23,7 +23,7 @@
 			<ul>
 				<c:choose>
 					<c:when test="${not empty sessionScope.user}">
-						<li><a href="/logout"><span>로그아웃</span></a></li>
+						<li><a href="/logoutAction"><span>로그아웃</span></a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="/login"><span>로그인</span></a></li>
