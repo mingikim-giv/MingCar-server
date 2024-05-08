@@ -12,9 +12,7 @@
 		
 		<button onclick="location.href='/updateUser'">회원정보 수정</button>
 		<button onclick="location.href='/deleteUserForm'">회원 탈퇴</button>
-		<form method="POST" action="/LogoutAction">
-			<input type="submit" value="로그 아웃">
-		</form>
+		<button onclick="location.href='/logoutAction'">로그아웃</button>
 	</section>
 </body>
 <c:import url="/footer" />

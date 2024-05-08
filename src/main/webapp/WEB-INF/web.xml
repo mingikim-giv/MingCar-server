@@ -33,12 +33,12 @@
 	</servlet-mapping>
   	
   	<servlet>
-		<servlet-name>deleteUserAction</servlet-name>
+		<servlet-name>deleteFormAction</servlet-name>
 		<servlet-class>mingCarServer.user.controller.DeleteFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>deleteUserAction</servlet-name>
-		<url-pattern>/deleteUserAction</url-pattern>
+		<servlet-name>deleteFormAction</servlet-name>
+		<url-pattern>/deleteFormAction</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -111,5 +111,23 @@
 	<servlet-mapping>
 		<servlet-name>myPage</servlet-name>
 		<url-pattern>/mypage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateUserForm</servlet-name>
+		<jsp-file>/views/user/updateUserForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateUserForm</servlet-name>
+		<url-pattern>/updateUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deleteUserForm</servlet-name>
+		<jsp-file>/views/user/deleteUserForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteUserForm</servlet-name>
+		<url-pattern>/deleteUserForm</url-pattern>
 	</servlet-mapping>
 </web-app>

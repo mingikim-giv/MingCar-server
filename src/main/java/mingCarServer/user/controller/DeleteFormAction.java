@@ -15,7 +15,6 @@ import mingCarServer.user.model.UserResponseDto;
 /**
  * Servlet implementation class DeleteFormAction
  */
-@WebServlet("/DeleteFormAction")
 public class DeleteFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
