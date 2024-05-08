@@ -44,6 +44,9 @@
 				</tbody>
 			</table>
 		</div>
+		<c:if test="${not empty user}">
+			<button onClick="location.href='/createBoard'">글쓰기</button>
+		</c:if>
 	</section>
 </body>
 <c:import url="/footer" />
