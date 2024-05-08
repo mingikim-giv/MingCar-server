@@ -60,6 +60,15 @@
 	</servlet-mapping>
   	
 	<servlet>
+		<servlet-name>createBoardAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.CreateBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createBoardAction</servlet-name>
+		<url-pattern>/createBoardAction</url-pattern>
+	</servlet-mapping>
+  	
+	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>
 	</servlet>
