@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,6 +104,10 @@ public class UserDao {
 		return findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) != null;
 	}
 	
+	public boolean userExists(String id) {
+		return findUserById(id) != null;
+	}
+	
 	public UserResponseDto createUser(UserRequestDto userDto) {
 		try {
 			conn = DBManager.getConnection();
@@ -128,5 +133,166 @@ public class UserDao {
 			DBManager.close(conn, pstmt);
 		}
 		return null;
+	}
+	
+	public UserResponseDto updateUserPassword(UserRequestDto userDto, String newPassword) {
+		UserResponseDto user = null;
+		
+		if(newPassword == null || newPassword.equals("")) {
+			return user;
+		}
+		
+		// 이때 쿼리 할 필요 X
+		if(findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
+			return user;
+		
+		try {
+			System.out.println("password");
+			conn = DBManager.getConnection();
+			
+			String sql = "UPDATE users SET password=? WHERE user_id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, PasswordCrypto.encrypt(newPassword));
+			pstmt.setString(2, userDto.getId());
+			
+			pstmt.execute();
+			
+			User userVo = findUserById(userDto.getId());
+			
+			user = new UserResponseDto(userVo);
+			
+			return user;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return user;
+	}
+	
+	public UserResponseDto updateUserEmail(UserRequestDto userDto) {
+		UserResponseDto user = null;
+		
+		if(findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
+			return user;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "UPDATE users SET email=? WHERE user_id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			// 맵핑하기
+			pstmt.setString(1, userDto.getEmail());
+			pstmt.setString(2, userDto.getId());
+			
+			// sql 구문 실행
+			pstmt.execute();
+			
+			user = findUserByIdAndPassword(userDto.getId(), userDto.getPassword());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return user;
+	}
+	
+	public UserResponseDto updateUserPhone(UserRequestDto userDto) {
+		UserResponseDto user = null;
+		
+		if(findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
+			return user;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "UPDATE users SET phone=? WHERE user_id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, userDto.getPhone());
+			pstmt.setString(2, userDto.getId());
+			
+			pstmt.execute();
+			
+			user = findUserByIdAndPassword(userDto.getId(), userDto.getPassword());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return user;
+	}
+	
+	// 패스워드가 일치하지 않으면 false가 됨
+	public boolean deleteUser(UserRequestDto userDto) {
+		
+		if(findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null) {
+			return false;
+		}
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "DELETE FROM users WHERE user_id=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, userDto.getId());
+			
+			pstmt.execute();
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return false;
+	}
+	
+	private User findUserById(String id) {
+		User user = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			// 쿼리할 준비
+			String sql = "SELECT user_id, email, name, birth, phone, gender, reg_date, mod_date FROM users WHERE user_id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			// 쿼리 실행
+			rs = pstmt.executeQuery();		// <- 결과가 rs 변수에 담김
+			
+			// 튜플 읽기
+			if(rs.next()) {
+				// database의 column index는 1부터 시작!
+				String email = rs.getString(2);
+				String name = rs.getString(3);
+				String birth = rs.getString(4);
+				String phone = rs.getString(5);
+				String gender = rs.getString(6);
+				Timestamp regDate = rs.getTimestamp(7);
+				Timestamp modDate = rs.getTimestamp(8);
+				
+				// user 초기화
+				user = new User(id, email, name, birth, phone, gender, regDate, modDate);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return user;
 	}
 }
