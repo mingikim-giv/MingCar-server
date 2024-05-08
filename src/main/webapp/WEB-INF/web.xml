@@ -23,6 +23,42 @@
 		<url-pattern>/loginFormAction</url-pattern>
 	</servlet-mapping>
   	
+  	<servlet>
+		<servlet-name>logoutAction</servlet-name>
+		<servlet-class>boardServer.user.controller.LogoutAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logoutAction</servlet-name>
+		<url-pattern>/logoutAction</url-pattern>
+	</servlet-mapping>
+  	
+  	<servlet>
+		<servlet-name>deleteUserAction</servlet-name>
+		<servlet-class>boardServer.user.controller.DeleteFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteUserAction</servlet-name>
+		<url-pattern>/deleteUserAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateFormAction</servlet-name>
+		<servlet-class>boardServer.user.controller.UpdateFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateFormAction</servlet-name>
+		<url-pattern>/updateFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>findUserAction</servlet-name>
+		<servlet-class>boardServer.user.controller.FindUserAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>findUserAction</servlet-name>
+		<url-pattern>/search/user</url-pattern>
+	</servlet-mapping>
+  	
 	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>
