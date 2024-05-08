@@ -12,10 +12,10 @@
 <body>
 	<header>
 		<div id="top">
-			<h1>Ming Car</h1>
+			<h1><a href="/">Ming Car</a></h1>
 			<nav>
 				<ul>
-					<li><a href="about:blank">마이 페이지</a></li>
+					<li><a href="/mypage">마이 페이지</a></li>
 					<li><a href="about:blank">예약</a></li>
 					<li><a href="about:blank">게시판</a></li> 
 				</ul>
