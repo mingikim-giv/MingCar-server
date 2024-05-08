@@ -60,12 +60,12 @@
 	</servlet-mapping>
   	
 	<servlet>
-		<servlet-name>createBoardAction</servlet-name>
+		<servlet-name>createBoardFormAction</servlet-name>
 		<servlet-class>mingCarServer.board.controller.CreateBoardAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>createBoardAction</servlet-name>
-		<url-pattern>/createBoardAction</url-pattern>
+		<servlet-name>createBoardFormAction</servlet-name>
+		<url-pattern>/createBoardFormAction</url-pattern>
 	</servlet-mapping>
   	
 	<servlet>

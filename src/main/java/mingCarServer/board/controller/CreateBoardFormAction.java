@@ -62,7 +62,7 @@ public class CreateBoardFormAction extends HttpServlet {
 			boardDto.setTitle(title);
 			boardDto.setContent(content);
 			
-//			boardDao.createBoard(boardDto);
+			boardDao.createBoard(boardDto);
 			
 			response.sendRedirect("/board");
 		}
