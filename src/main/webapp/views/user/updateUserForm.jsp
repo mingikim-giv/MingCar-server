@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 </head>
 <c:import url="/header" />
+<script src="/resources/script/validation-join.js"></script>
 <body>
 	<form method="POST" action="/updateFormAction">
 		<div>

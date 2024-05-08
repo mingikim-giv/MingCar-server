@@ -59,7 +59,6 @@ public class UpdateFormAction extends HttpServlet {
 			String newPassword = request.getParameter("password-new");
 			String email = request.getParameter("email");
 			
-			String telecom = request.getParameter("telecom");
 			String phone = request.getParameter("phone");
 			
 			// if-else 아니므로 전부 다 변경시 모두 호출 됨
