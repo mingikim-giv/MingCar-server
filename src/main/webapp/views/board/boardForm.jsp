@@ -45,7 +45,7 @@
 			</table>
 		</div>
 		<c:if test="${not empty user}">
-			<button onClick="location.href='/createBoard'">글쓰기</button>
+			<button onClick="location.href='/createBoardForm'">글쓰기</button>
 		</c:if>
 	</section>
 </body>

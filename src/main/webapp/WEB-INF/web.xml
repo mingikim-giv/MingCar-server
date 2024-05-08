@@ -121,4 +121,13 @@
 		<servlet-name>boardForm</servlet-name>
 		<url-pattern>/board</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>createBoardForm</servlet-name>
+		<jsp-file>/views/board/createBoardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createBoardForm</servlet-name>
+		<url-pattern>/createBoardForm</url-pattern>
+	</servlet-mapping>
 </web-app>
