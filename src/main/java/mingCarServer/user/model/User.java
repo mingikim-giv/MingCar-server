@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 
 public class User {
 	private String id;
-	private String password;
 	private String email;
 	private String name;
 	private String birth;
@@ -14,11 +13,10 @@ public class User {
 	private Timestamp modDate;
 	
 	
-	public User(String id, String password, String email, String name, String birth, String phone, String gender,
+	public User(String id, String email, String name, String birth, String phone, String gender,
 			Timestamp regDate, Timestamp modDate) {
 		super();
 		this.id = id;
-		this.password = password;
 		this.email = email;
 		this.name = name;
 		this.birth = birth;
@@ -33,12 +31,6 @@ public class User {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public String getEmail() {
 		return email;
