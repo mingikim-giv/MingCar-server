@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 </head>
 <c:import url="/header" />
+<script src="/resources/script/validation-login.js"></script>
 <body>
 	<section id="root">
 		<h2>회원 탈퇴</h2>
