@@ -61,7 +61,7 @@
   	
 	<servlet>
 		<servlet-name>createBoardFormAction</servlet-name>
-		<servlet-class>mingCarServer.board.controller.CreateBoardAction</servlet-class>
+		<servlet-class>mingCarServer.board.controller.CreateBoardFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>createBoardFormAction</servlet-name>
