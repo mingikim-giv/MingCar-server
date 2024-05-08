@@ -54,4 +54,27 @@ public class BoardDao {
 		
 		return list;
 	}
+	
+	public BoardResponseDto createBoard(BoardRequestDto boardDto) {
+		BoardResponseDto board = null;
+		try {
+			conn = DBManager.getConnection();
+			String sql = "INSERT INTO board(user_id, title, content, author, category) VALUES(?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			
+			String id = boardDto.getId();
+			pstmt.setString(1, boardDto.getId());
+			pstmt.setString(2, boardDto.getTitle());
+			pstmt.setString(3, boardDto.getContent());
+			pstmt.setString(4, boardDto.getAuthor());
+			pstmt.setBoolean(5, id.equals("admin") ? true : false);
+
+			pstmt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return board;
+	}
 }
