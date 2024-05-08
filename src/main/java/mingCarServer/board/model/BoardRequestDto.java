@@ -12,6 +12,8 @@ public class BoardRequestDto {
 	private Date regWrite;
 	private Date modWrite;
 	
+	public BoardRequestDto() {}
+	
 	public BoardRequestDto(int boardCode, String id, String title, String content, String author, boolean category,
 			Date regWrite, Date modWrite) {
 		super();

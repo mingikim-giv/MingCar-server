@@ -8,8 +8,8 @@
 <c:import url="/header" />
 <body>
 	<form method="POST" action="/createFormAction">
-		<input type="text" name="title" id="title" placeholder="제목">
-		<input type="text" name="contents" id="contents" placeholder="내용">
+		<input type="text" name="title" id="title" placeholder="제목"><br>
+		<input type="text" name="contents" id="contents" placeholder="내용"><br>
 		<input type="submit" value="등록하기">
 	</form>
 </body>
