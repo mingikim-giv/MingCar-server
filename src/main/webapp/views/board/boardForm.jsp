@@ -25,7 +25,7 @@
 							<td><a href="/targetBoardAction?boardCode=${board.boardCode}">${board.title}</a></td>
 							<td>${board.content}</td>
 							<td>${board.author}</td>
-							<td>${board.regWrite}</td>
+							<td>${board.regWrite}</td>	
 						</tr>
 					</c:forEach>
 				</tbody>
