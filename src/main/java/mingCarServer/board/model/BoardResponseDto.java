@@ -88,9 +88,4 @@ public class BoardResponseDto {
 	public void setModWrite(Date modWrite) {
 		this.modWrite = modWrite;
 	}
-	
-	@Override
-	public String toString() {
-		return String.format("board_code: %d id: %s title: %s content: %s author: %s category: %b", boardCode, id, title, content, author, category);
-	}
 }
