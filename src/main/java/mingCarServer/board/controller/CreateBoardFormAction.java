@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import mingCarServer.board.model.BoardDao;
 import mingCarServer.board.model.BoardRequestDto;
+import mingCarServer.board.model.BoardResponseDto;
 import mingCarServer.user.model.UserResponseDto;
 
 /**
@@ -43,26 +44,28 @@ public class CreateBoardFormAction extends HttpServlet {
 		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		
+
 		if(title==null||title.equals("")||content==null||content.equals("")) {
 			response.sendRedirect("/board");
 		}
 		else {
 			BoardDao boardDao = BoardDao.getInstance();
+			int code = boardDao.createCode();
 			
 			HttpSession session = request.getSession();
 			UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 			
 			String id = user.getId();
-			BoardRequestDto boardDto = new BoardRequestDto();
+			boolean category = id.equals("admin") ? true : false;
 			
-			boardDto.setId(id);
-			boardDto.setTitle(title);
-			boardDto.setContent(content);
+			BoardRequestDto boardDto = new BoardRequestDto(code, id, title, content, id, category);
 			
-			boardDao.createBoard(boardDto);
+			BoardResponseDto board = boardDao.createBoard(boardDto);
 			
-			response.sendRedirect("/board");
+			if(board == null)
+				response.sendRedirect("/");
+			else 
+				response.sendRedirect("/board");
 		}
 	}
 
