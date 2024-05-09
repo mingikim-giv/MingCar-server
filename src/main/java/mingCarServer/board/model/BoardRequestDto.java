@@ -26,6 +26,16 @@ public class BoardRequestDto {
 		this.regWrite = regWrite;
 		this.modWrite = modWrite;
 	}
+	
+	public BoardRequestDto(int boardCode, String id, String title, String content, String author, boolean category) {
+		super();
+		this.boardCode = boardCode;
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.author = author;
+		this.category = category;
+	}
 
 	public int getBoardCode() {
 		return boardCode;
