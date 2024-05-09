@@ -55,6 +55,37 @@ public class BoardDao {
 		return list;
 	}
 	
+	
+	public BoardResponseDto findBoardCode(int boardCode) {
+		BoardResponseDto board = null;
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "SELECT board_code, user_id, title, content, author, category, reg_write, mod_write FROM board WHERE board_code";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardCode);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String id = rs.getString(2);
+				String title = rs.getString(3);
+				String content = rs.getString(4);
+				String author = rs.getString(5);
+				Boolean category = rs.getBoolean(6);
+				Date regWrite = rs.getDate(7);
+				Date modWrite = rs.getDate(8);
+				
+				board = new BoardResponseDto(boardCode, id, title, content, author, category, regWrite, modWrite);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return board;
+	}
+	
 	public BoardResponseDto createBoard(BoardRequestDto boardDto) {
 		BoardResponseDto board = null;
 		try {
