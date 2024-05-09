@@ -1,6 +1,8 @@
 package mingCarServer.board.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +35,10 @@ public class TargetBoardAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String boardCode = request.getParameter("board_code");
+		if(boardCode == null) {
+			boardCode = "0";
+		}
 		int boardNum = Integer.parseInt(boardCode);
-		
 		
 		BoardDao boardDao = BoardDao.getInstance();
 		BoardResponseDto targetBoard = boardDao.findBoardCode(boardNum);
