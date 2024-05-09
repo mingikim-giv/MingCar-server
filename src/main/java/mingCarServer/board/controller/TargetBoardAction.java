@@ -42,7 +42,7 @@ public class TargetBoardAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("targetBoard", targetBoard);
-		response.sendRedirect("/viewTargetBoard");
+		response.sendRedirect("/targetBoardForm");
 	}
 
 	/**
