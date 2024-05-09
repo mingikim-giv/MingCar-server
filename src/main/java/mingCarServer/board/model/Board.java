@@ -1,6 +1,6 @@
 package mingCarServer.board.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Board {
 	private int boardCode;
@@ -9,11 +9,11 @@ public class Board {
 	private String content;
 	private String author;
 	private boolean category;
-	private Date regWrite;
-	private Date modWrite;
+	private Timestamp regWrite;
+	private Timestamp modWrite;
 	
-	public Board(int boardCode, String id, String title, String content, String author, boolean category, Date regWrite,
-			Date modWrite) {
+	public Board(int boardCode, String id, String title, String content, String author, boolean category, Timestamp regWrite,
+			Timestamp modWrite) {
 		super();
 		this.boardCode = boardCode;
 		this.id = id;
@@ -61,16 +61,16 @@ public class Board {
 	public void setCategory(boolean category) {
 		this.category = category;
 	}
-	public Date getRegWrite() {
+	public Timestamp getRegWrite() {
 		return regWrite;
 	}
-	public void setRegWrite(Date regWrite) {
+	public void setRegWrite(Timestamp regWrite) {
 		this.regWrite = regWrite;
 	}
-	public Date getModWrite() {
+	public Timestamp getModWrite() {
 		return modWrite;
 	}
-	public void setModWrite(Date modWrite) {
+	public void setModWrite(Timestamp modWrite) {
 		this.modWrite = modWrite;
 	}
 }
