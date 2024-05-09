@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import mingCarServer.util.DBManager;
 
@@ -13,6 +14,7 @@ public class BoardDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	private int cnt;
 	
 	private BoardDao() {};
 	
@@ -54,7 +56,6 @@ public class BoardDao {
 		return list;
 	}
 	
-	
 	public BoardResponseDto findBoardCode(int boardCode) {
 		BoardResponseDto board = null;
 		try {
@@ -66,7 +67,8 @@ public class BoardDao {
 			
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
+				int code = rs.getInt(1);
 				String id = rs.getString(2);
 				String title = rs.getString(3);
 				String content = rs.getString(4);
@@ -75,9 +77,11 @@ public class BoardDao {
 				Date regWrite = rs.getDate(7);
 				Date modWrite = rs.getDate(8);
 				
-				board = new BoardResponseDto(boardCode, id, title, content, author, category, regWrite, modWrite);
+				if(boardCode == code) {
+					board = new BoardResponseDto(boardCode, id, title, content, author, category, regWrite, modWrite);
+					return board;
+				}
 			}
-			return board;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -86,39 +90,30 @@ public class BoardDao {
 		return board;
 	}
 	
-	private int lastBoardCode() {
-		int lastBoardCode = -1;
-		try {
-			String sql = "SELECT MAX(board_code) FROM board";
-			pstmt = conn.prepareStatement(sql);
-
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				lastBoardCode = rs.getInt(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return lastBoardCode;
+	public int createCode() {
+		int code;
+		code = ++ cnt;
+		return code;
 	}
 	
 	public BoardResponseDto createBoard(BoardRequestDto boardDto) {
 		BoardResponseDto board = null;
 		try {
 			conn = DBManager.getConnection();
-			String sql = "INSERT INTO board(user_id, title, content, author, category) VALUES(?, ?, ?, ?, ?)";
-			pstmt = conn.prepareStatement(sql);
+			String sql = "INSERT INTO board(board_code, user_id, title, content, author, category) VALUES(?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql); 
 			
 			String id = boardDto.getId();
-			pstmt.setString(1, boardDto.getId());
-			pstmt.setString(2, boardDto.getTitle());
-			pstmt.setString(3, boardDto.getContent());
-			pstmt.setString(4, boardDto.getAuthor());
-			pstmt.setBoolean(5, id.equals("admin") ? true : false);
+			
+			pstmt.setInt(1, boardDto.getBoardCode());
+			pstmt.setString(2, boardDto.getId());
+			pstmt.setString(3, boardDto.getTitle());
+			pstmt.setString(4, boardDto.getContent());
+			pstmt.setString(5, boardDto.getAuthor());
+			pstmt.setBoolean(6, id.equals("admin") ? true : false);
 
 			pstmt.execute();
-			board = findBoardCode(lastBoardCode());
+			board = findBoardCode(boardDto.getBoardCode());
 			return board;
 		} catch (Exception e) {
 			e.printStackTrace();
