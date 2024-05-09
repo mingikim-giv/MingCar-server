@@ -44,12 +44,10 @@ public class CreateBoardFormAction extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
-		boolean isValid = true;
 		if(title==null||title.equals("")||content==null||content.equals("")) {
 			response.sendRedirect("/board");
 		}
-		
-		if(isValid) {
+		else {
 			BoardDao boardDao = BoardDao.getInstance();
 			
 			HttpSession session = request.getSession();

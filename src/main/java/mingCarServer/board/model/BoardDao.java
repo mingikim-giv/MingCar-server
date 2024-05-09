@@ -61,7 +61,7 @@ public class BoardDao {
 		try {
 			conn = DBManager.getConnection();
 			
-			String sql = "SELECT board_code, user_id, title, content, author, category, reg_write, mod_write FROM board WHERE board_code";
+			String sql = "SELECT board_code, user_id, title, content, author, category, reg_write, mod_write FROM board WHERE board_code=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardCode);
 			
@@ -86,6 +86,23 @@ public class BoardDao {
 		return board;
 	}
 	
+	private int lastBoardCode() {
+		int lastBoardCode = -1;
+		try {
+			String sql = "SELECT MAX(board_code) FROM board";
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				lastBoardCode = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lastBoardCode;
+	}
+	
 	public BoardResponseDto createBoard(BoardRequestDto boardDto) {
 		BoardResponseDto board = null;
 		try {
@@ -101,6 +118,7 @@ public class BoardDao {
 			pstmt.setBoolean(5, id.equals("admin") ? true : false);
 
 			pstmt.execute();
+			board = findBoardCode(lastBoardCode());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -108,4 +126,5 @@ public class BoardDao {
 		}
 		return board;
 	}
+	
 }
