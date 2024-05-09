@@ -14,7 +14,6 @@ public class BoardDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	private int cnt;
 	
 	private BoardDao() {};
 	
@@ -92,7 +91,13 @@ public class BoardDao {
 	
 	public int createCode() {
 		int code;
-		code = ++ cnt;
+		while(true) {
+			Random ran = new Random();
+			
+			int rNum = ran.nextInt(10000)+1;
+			code = rNum;
+			break;
+		}
 		return code;
 	}
 	
