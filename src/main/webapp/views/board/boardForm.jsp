@@ -14,6 +14,7 @@
 				<thead>
 					<tr>
 						<th>제목</th>
+						<th>내용</th>
 						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
@@ -22,7 +23,8 @@
 					<c:forEach var="board" items="${boardlist}">
 						<tr>
 							<td><a href="/targetBoardAction?boardCode=${board.boardCode}">${board.title}</a></td>
-							<td>${board.id}</td>
+							<td>${board.content}</td>
+							<td>${board.author}</td>
 							<td>${board.regWrite}</td>
 						</tr>
 					</c:forEach>
