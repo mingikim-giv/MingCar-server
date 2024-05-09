@@ -119,6 +119,7 @@ public class BoardDao {
 
 			pstmt.execute();
 			board = findBoardCode(lastBoardCode());
+			return board;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -127,4 +128,22 @@ public class BoardDao {
 		return board;
 	}
 	
+	public boolean deleteBoardForm(int boardCode) {
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "DELETE FORM board WHERE board_code=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardCode);
+			
+			pstmt.execute();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		return false;
+	}
 }
