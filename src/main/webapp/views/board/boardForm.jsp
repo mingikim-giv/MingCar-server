@@ -12,13 +12,23 @@
 			<h2>게시판</h2>
 			<div>
 				<input type="text" id="inpSearch" placeholder="검색어를 입력해주세요." title="검색어를 입력해주세요.">
+				<table>
+					<thead>
+						<tr>
+							<th>제목</th>
+							<th>작성자</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="board" items="${boardlist}">
+							<tr>
+								<td>${board.title}</td>
+								<td>${board.id}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
-			<p id="index"><span>작성자명</span><span>제목</span></p>
-			<c:forEach var="board" items="${boardlist}">
-				<c:if test="${board.category ne true}">
-					<h4>${board.id}</h4>
-				</c:if>
-			</c:forEach>
 		</div>
 		<c:if test="${not empty user}">
 			<button onClick="location.href='/createBoardForm'">글쓰기</button>

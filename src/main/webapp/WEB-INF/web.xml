@@ -76,6 +76,15 @@
 		<servlet-name>boardFormAction</servlet-name>
 		<url-pattern>/boardFormAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>targetBoardAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.TargetBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>targetBoardAction</servlet-name>
+		<url-pattern>/targetBoardAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>
@@ -147,5 +156,14 @@
 	<servlet-mapping>
 		<servlet-name>createBoardForm</servlet-name>
 		<url-pattern>/createBoardForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>targetBoardForm</servlet-name>
+		<jsp-file>/views/board/targetBoardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>targetBoardForm</servlet-name>
+		<url-pattern>/targetBoardForm</url-pattern>
 	</servlet-mapping>
 </web-app>
