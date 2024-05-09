@@ -67,6 +67,15 @@
 		<servlet-name>createBoardFormAction</servlet-name>
 		<url-pattern>/createBoardFormAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>boardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.BoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardFormAction</servlet-name>
+		<url-pattern>/boardFormAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>
