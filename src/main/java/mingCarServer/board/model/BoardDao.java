@@ -1,9 +1,9 @@
 package mingCarServer.board.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,7 +15,7 @@ public class BoardDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private BoardDao() {};
+	public BoardDao() {};
 	
 	private static BoardDao instance = new BoardDao();
 	
@@ -41,8 +41,8 @@ public class BoardDao {
 				String content = rs.getString(4);
 				String author = rs.getString(5);
 				Boolean category = rs.getBoolean(6);
-				Date regWrite = rs.getDate(7);
-				Date modWrite = rs.getDate(8);
+				Timestamp regWrite = rs.getTimestamp(7);
+				Timestamp modWrite = rs.getTimestamp(8);
 				
 				BoardResponseDto board = new BoardResponseDto(boardcode, id, title, content, author, category, regWrite, modWrite);
 				list.add(board);
@@ -73,8 +73,8 @@ public class BoardDao {
 				String content = rs.getString(4);
 				String author = rs.getString(5);
 				Boolean category = rs.getBoolean(6);
-				Date regWrite = rs.getDate(7);
-				Date modWrite = rs.getDate(8);
+				Timestamp regWrite = rs.getTimestamp(7);
+				Timestamp modWrite = rs.getTimestamp(8);
 				
 				if(boardCode == code) {
 					board = new BoardResponseDto(boardCode, id, title, content, author, category, regWrite, modWrite);

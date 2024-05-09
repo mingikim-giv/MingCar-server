@@ -46,7 +46,7 @@ public class CreateBoardFormAction extends HttpServlet {
 		String content = request.getParameter("content");
 
 		if(title==null||title.equals("")||content==null||content.equals("")) {
-			response.sendRedirect("/board");
+			response.sendRedirect("/boardFormAction");
 		}
 		else {
 			BoardDao boardDao = BoardDao.getInstance();
@@ -65,7 +65,7 @@ public class CreateBoardFormAction extends HttpServlet {
 			if(board == null)
 				response.sendRedirect("/");
 			else 
-				response.sendRedirect("/board");
+				response.sendRedirect("/boardFormAction");
 		}
 	}
 

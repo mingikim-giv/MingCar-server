@@ -20,11 +20,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="board" items="${boardList}">
+					<c:forEach var="board" items="${boardlist}">
 						<tr>
-							<td><a href="">${board.title}</a></td>
+							<td><a href="/targetBoardAction?boardCode=${board.boardCode}">${board.title}</a></td>
 							<td>${board.id}</td>
-							<td>${board.reg_date}</td>
+							<td>${board.regWrite}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

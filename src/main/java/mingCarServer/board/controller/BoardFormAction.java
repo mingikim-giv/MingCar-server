@@ -31,24 +31,18 @@ public class BoardFormAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-
-		BoardDao boardDao = BoardDao.getInstance();
+		BoardDao boardDao = new BoardDao();
 		List<BoardResponseDto> list = boardDao.findBoardAll();
 		
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("boardlist", list);
-		session.setAttribute("pageStatus", "board");
-		response.sendRedirect("/board");
+		request.setAttribute("boardlist", list);
+		request.getRequestDispatcher("/board").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
 	}
 
 }
