@@ -51,7 +51,6 @@ public class BoardDao {
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
-		
 		return list;
 	}
 	
@@ -78,6 +77,7 @@ public class BoardDao {
 				
 				board = new BoardResponseDto(boardCode, id, title, content, author, category, regWrite, modWrite);
 			}
+			return board;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
