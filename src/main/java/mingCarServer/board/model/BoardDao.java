@@ -15,7 +15,7 @@ public class BoardDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	public BoardDao() {};
+	public BoardDao() {}
 	
 	private static BoardDao instance = new BoardDao();
 	
