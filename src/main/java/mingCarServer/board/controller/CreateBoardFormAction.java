@@ -45,7 +45,7 @@ public class CreateBoardFormAction extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 
-		if(title==null||title.equals("")||content==null||content.equals("")) {
+		if(title == null || title.equals("") || content == null || content.equals("")) {
 			response.sendRedirect("/boardFormAction");
 		}
 		else {
