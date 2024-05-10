@@ -85,6 +85,15 @@
 		<servlet-name>targetBoardAction</servlet-name>
 		<url-pattern>/targetBoardAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>carFormAction</servlet-name>
+		<servlet-class>mingCarServer.car.controller.CarFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>carFormAction</servlet-name>
+		<url-pattern>/carFormAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>
