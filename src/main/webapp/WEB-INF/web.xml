@@ -60,6 +60,33 @@
 	</servlet-mapping>
   	
 	<servlet>
+		<servlet-name>createBoardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.CreateBoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createBoardFormAction</servlet-name>
+		<url-pattern>/createBoardFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>boardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.BoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardFormAction</servlet-name>
+		<url-pattern>/boardFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>targetBoardAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.TargetBoardAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>targetBoardAction</servlet-name>
+		<url-pattern>/targetBoardAction</url-pattern>
+	</servlet-mapping>
+  	
+	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>
 	</servlet>
@@ -129,5 +156,32 @@
 	<servlet-mapping>
 		<servlet-name>deleteUserForm</servlet-name>
 		<url-pattern>/deleteUserForm</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>boardForm</servlet-name>
+		<jsp-file>/views/board/boardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardForm</servlet-name>
+		<url-pattern>/board</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>targetBoardForm</servlet-name>
+		<jsp-file>/views/board/targetBoardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>targetBoardForm</servlet-name>
+		<url-pattern>/targetBoardForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateBoardForm</servlet-name>
+		<jsp-file>/views/board/updateBoardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateBoardForm</servlet-name>
+		<url-pattern>/updateBoardForm</url-pattern>
 	</servlet-mapping>
 </web-app>
