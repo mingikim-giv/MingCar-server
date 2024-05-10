@@ -8,6 +8,8 @@ public class CarRequestDto {
 	private int carSeat;
 	private boolean reservation;
 	
+	public CarRequestDto() {}
+	
 	public CarRequestDto(int carCode, String carName, int carPrice, String carType, int carSeat, boolean reservation) {
 		super();
 		this.carCode = carCode;
