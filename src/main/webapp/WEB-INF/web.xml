@@ -85,6 +85,15 @@
 		<servlet-name>targetBoardAction</servlet-name>
 		<url-pattern>/targetBoardAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deleteBoardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.DeleteBoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteBoardFormAction</servlet-name>
+		<url-pattern>/deleteBoardFormAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>

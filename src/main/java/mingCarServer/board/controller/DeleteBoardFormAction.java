@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import mingCarServer.board.model.BoardDao;
+import mingCarServer.board.model.BoardResponseDto;
 
 /**
  * Servlet implementation class DeleteBoardFormAction
@@ -26,8 +30,16 @@ public class DeleteBoardFormAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
+		BoardResponseDto targetBoard = (BoardResponseDto)session.getAttribute("targetBoard");
+		
+		int boardNum = targetBoard.getBoardCode();
+		BoardDao boardDao = BoardDao.getInstance();
+		boardDao.deleteBoardForm(boardNum);
+		
+		response.sendRedirect("/boardFormAction");
 	}
 
 	/**

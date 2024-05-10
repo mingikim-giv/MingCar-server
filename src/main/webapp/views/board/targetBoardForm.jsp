@@ -17,8 +17,8 @@
 			<h4>내용: ${targetBoard.content}</h4>
 	
 			<c:if test="${not empty sessionScope.user || targetBoard.id eq user.id || user.id eq 'admin'}">
-				<button onClick="location.href='/deleteBoardAction'">삭제</button>
-				<button onClick="location.href='/updateBoard'">수정</button>
+				<button onClick="location.href='/deleteBoardFormAction'">삭제</button>
+				<button onClick="location.href='/updateFormBoard'">수정</button>
 			</c:if>
 		</div>
 	</section>
