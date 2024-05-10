@@ -193,4 +193,13 @@
 		<servlet-name>updateBoardForm</servlet-name>
 		<url-pattern>/updateBoardForm</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>carForm</servlet-name>
+		<jsp-file>/views/car/carForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>carForm</servlet-name>
+		<url-pattern>/carForm</url-pattern>
+	</servlet-mapping>
 </web-app>
