@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<c:import url="/header"></c:import>
+<c:import url="/header" />
 <body>
 	<section id="root">
 		<div class="container">
@@ -18,10 +18,10 @@
 	
 			<c:if test="${not empty sessionScope.user || targetBoard.id eq user.id || user.id eq 'admin'}">
 				<button onClick="location.href='/deleteBoardFormAction'">삭제</button>
-				<button onClick="location.href='/updateFormBoard'">수정</button>
+				<button onClick="location.href='/updateBoardForm'">수정</button>
 			</c:if>
 		</div>
 	</section>
 </body>
-<c:import url="/footer"></c:import>
+<c:import url="/footer" />
 </html>

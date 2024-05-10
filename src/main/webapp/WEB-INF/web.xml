@@ -96,6 +96,15 @@
 	</servlet-mapping>
   	
 	<servlet>
+		<servlet-name>updateBoardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.UpdateBoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateBoardFormAction</servlet-name>
+		<url-pattern>/updateBoardFormAction</url-pattern>
+	</servlet-mapping>
+  	
+	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>
 	</servlet>
@@ -174,5 +183,14 @@
 	<servlet-mapping>
 		<servlet-name>targetBoardForm</servlet-name>
 		<url-pattern>/targetBoardForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateBoardForm</servlet-name>
+		<jsp-file>/views/board/updateBoardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateBoardForm</servlet-name>
+		<url-pattern>/updateBoardForm</url-pattern>
 	</servlet-mapping>
 </web-app>
