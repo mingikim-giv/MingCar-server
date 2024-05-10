@@ -146,4 +146,30 @@ public class BoardDao {
 		}
 		return false;
 	}
+	
+	public BoardResponseDto updateBoard(BoardRequestDto boardDto) {
+		BoardResponseDto board = null;
+		
+		int boardNum = boardDto.getBoardCode();
+		String title = boardDto.getTitle();
+		String content = boardDto.getContent();
+		
+		try {
+			conn = DBManager.getConnection();
+			String sql = "UPDATE board SET title=?, content=?, mod_write=NOW() WHERE board_code=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, boardNum);
+
+			pstmt.execute();
+			board = findBoardCode(boardNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		return board;
+	}
 }
