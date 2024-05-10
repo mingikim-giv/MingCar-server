@@ -132,7 +132,7 @@ public class BoardDao {
 		try {
 			conn = DBManager.getConnection();
 			
-			String sql = "DELETE FORM board WHERE board_code=?";
+			String sql = "DELETE FROM board WHERE board_code=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, boardCode);
