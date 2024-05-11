@@ -103,6 +103,15 @@
 		<servlet-name>targetCarAction</servlet-name>
 		<url-pattern>/targetCarAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>reservationAction</servlet-name>
+		<servlet-class>mingCarServer.reservation.controller.ReservationAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reservationAction</servlet-name>
+		<url-pattern>/reservationAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>

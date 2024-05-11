@@ -53,7 +53,7 @@
 				<c:when test="${fn:contains(targetCar.carName,'스타리아')}">
 					<img class="car-image" src="/resources/image/car/staria.png" style="height=200px;width:200px;">
 				</c:when>
-				<c:when test="${fn:contains(targetCar.carName,'펠리세이드')}">
+				<c:when test="${fn:contains(targetCar.carName,'팰리세이드')}">
 					<img class="car-image" src="/resources/image/car/palisade.png" style="height=200px;width:200px;">
 				</c:when>
 			</c:choose>
@@ -61,7 +61,7 @@
 		</div>
 		<div id="reservation-info">
 			<span>${startDate} ~ ${endDate} 까지</span>
-			<button onclick="location.href='/reservateAction'">예약확정</button>
+			<button onclick="location.href='/reservationAction'">예약확정</button>
 		</div>
 	</section>
 </body>

@@ -59,6 +59,15 @@ public class ReservationAction extends HttpServlet {
 
 		ReservationDao reservationDao = ReservationDao.getInstance();
 		ReservationResponseDto result = reservationDao.createReservation(reservationDto);
+		
+		if (result == null) {
+			request.setAttribute("isReservation", false);
+		} 
+		else {
+			request.setAttribute("isReservation", true);
+		}
+		
+		request.getRequestDispatcher("/reservationForm").forward(request,response);
 	}
 
 	/**
