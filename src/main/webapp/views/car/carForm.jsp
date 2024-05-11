@@ -14,7 +14,8 @@
 			<div>${car.carName}</div>
 			<div>${car.carPrice}</div>
 			<div>${car.carType}</div>
-			<div>${car.carSeat}인승</div><br>
+			<div>${car.carSeat}인승</div>
+			<button>예약하기</button><br>
 		</c:forEach>
 	</section>	
 </body>

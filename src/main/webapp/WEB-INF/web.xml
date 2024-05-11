@@ -202,4 +202,13 @@
 		<servlet-name>carForm</servlet-name>
 		<url-pattern>/carForm</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>reservationForm</servlet-name>
+		<jsp-file>/views/reservation/reservationForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reservationForm</servlet-name>
+		<url-pattern>/reservationForm</url-pattern>
+	</servlet-mapping>
 </web-app>
