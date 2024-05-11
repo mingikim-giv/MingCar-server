@@ -34,13 +34,14 @@ public class CarDao {
 			
 			while (rs.next()) {
 				int carCode = rs.getInt(1);
-				String carName = rs.getString(2);
-				int carPrice = rs.getInt(3);
-				String carType = rs.getString(4);
-				int carSeat = rs.getInt(5);
-				boolean reservation = rs.getBoolean(6);
+				String carNumber = rs.getString(2);
+				String carName = rs.getString(3);
+				int carPrice = rs.getInt(4);
+				String carType = rs.getString(5);
+				int carSeat = rs.getInt(6);
+				boolean reservation = rs.getBoolean(7);
 				
-				CarResponseDto temp = new CarResponseDto(carCode, carName, carPrice, carType, carSeat, reservation);	
+				CarResponseDto temp = new CarResponseDto(carCode, carNumber, carName, carPrice, carType, carSeat, reservation);	
 				list.add(temp);
 			}
 		} catch (Exception e) {
@@ -49,5 +50,36 @@ public class CarDao {
 			DBManager.close(conn, pstmt);
 		}
 		return list;
+	}
+	
+	public CarResponseDto findCarByCarNumber(String str) {
+		CarResponseDto response = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "SELECT * FROM cars WHERE car_number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, str);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int carCode = rs.getInt(1);
+				String carNumber = rs.getString(2);
+				String carName = rs.getString(3);
+				int carPrice = rs.getInt(4);
+				String carType = rs.getString(5);
+				int carSeat = rs.getInt(6);
+				boolean reservation = rs.getBoolean(7);
+				
+				response = new CarResponseDto(carCode, carNumber, carName, carPrice, carType, carSeat, reservation);	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		return response;
 	}
 }
