@@ -9,6 +9,8 @@ public class Car {
 	private int carSeat;
 	private boolean reservation;
 	
+	public Car() {}
+	
 	public Car(int carCode, String carNumber, String carName, int carPrice, String carType, int carSeat,
 			boolean reservation) {
 		super();
