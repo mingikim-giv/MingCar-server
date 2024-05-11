@@ -1,6 +1,8 @@
 package mingCarServer.reservation.controller;
 
 import java.io.IOException;
+import java.sql.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import mingCarServer.car.model.CarResponseDto;
+import mingCarServer.reservation.model.ReservationDao;
+import mingCarServer.reservation.model.ReservationRequestDto;
+import mingCarServer.reservation.model.ReservationResponseDto;
 import mingCarServer.user.model.UserResponseDto;
 
 /**
@@ -36,7 +41,24 @@ public class ReservationAction extends HttpServlet {
 		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 
 		CarResponseDto targetCar = (CarResponseDto)session.getAttribute("targetCar");
+		int targetCarCode = targetCar.getCarCode();
 		
+		String startDate = (String) session.getAttribute("startDate");
+		String endDate = (String) session.getAttribute("endDate");
+		
+		Date start = Date.valueOf(startDate);
+		Date end = Date.valueOf(endDate);
+		
+		String id = user.getId();
+		
+		ReservationRequestDto reservationDto = new ReservationRequestDto();
+		reservationDto.setCarCode(targetCarCode);
+		reservationDto.setId(id);
+		reservationDto.setStartDate(start);
+		reservationDto.setEndDate(end);
+
+		ReservationDao reservationDao = ReservationDao.getInstance();
+		ReservationResponseDto result = reservationDao.createReservation(reservationDto);
 	}
 
 	/**

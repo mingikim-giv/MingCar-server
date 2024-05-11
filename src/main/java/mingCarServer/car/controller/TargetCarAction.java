@@ -15,7 +15,6 @@ import mingCarServer.user.model.UserResponseDto;
 /**
  * Servlet implementation class TargetCarAction
  */
-@WebServlet("/TargetCarAction")
 public class TargetCarAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,7 +45,7 @@ public class TargetCarAction extends HttpServlet {
 			CarResponseDto targetCar = carDao.findCarByCarNumber(targetCarNum);
 			session.setAttribute("targetCar", targetCar);
 			
-			response.sendRedirect("/carDetail");
+			response.sendRedirect("/targetCar");
 		}
 	}
 

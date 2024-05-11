@@ -57,7 +57,7 @@ public class CarDao {
 		try {
 			conn = DBManager.getConnection();
 			
-			String sql = "SELECT * FROM cars WHERE car_number=?";
+			String sql = "SELECT * FROM cars WHERE car_code=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, str);
 

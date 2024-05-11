@@ -94,6 +94,15 @@
 		<servlet-name>carFormAction</servlet-name>
 		<url-pattern>/carFormAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>targetCarAction</servlet-name>
+		<servlet-class>mingCarServer.car.controller.TargetCarAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>targetCarAction</servlet-name>
+		<url-pattern>/targetCarAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>
@@ -210,5 +219,14 @@
 	<servlet-mapping>
 		<servlet-name>reservationForm</servlet-name>
 		<url-pattern>/reservationForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>targetCar</servlet-name>
+		<jsp-file>/views/reservation/targetCar.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>targetCar</servlet-name>
+		<url-pattern>/targetCar</url-pattern>
 	</servlet-mapping>
 </web-app>
