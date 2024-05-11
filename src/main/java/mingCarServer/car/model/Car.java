@@ -2,7 +2,6 @@ package mingCarServer.car.model;
 
 public class Car {
 	private int carCode;
-	private String carNumber;
 	private String carName;
 	private int carPrice;
 	private String carType;
@@ -11,11 +10,10 @@ public class Car {
 	
 	public Car() {}
 	
-	public Car(int carCode, String carNumber, String carName, int carPrice, String carType, int carSeat,
+	public Car(int carCode, String carName, int carPrice, String carType, int carSeat,
 			boolean reservation) {
 		super();
 		this.carCode = carCode;
-		this.carNumber = carNumber;
 		this.carName = carName;
 		this.carPrice = carPrice;
 		this.carType = carType;
@@ -29,14 +27,6 @@ public class Car {
 
 	public void setCarCode(int carCode) {
 		this.carCode = carCode;
-	}
-
-	public String getCarNumber() {
-		return carNumber;
-	}
-
-	public void setCarNumber(String carNumber) {
-		this.carNumber = carNumber;
 	}
 
 	public String getCarName() {
