@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/* Body에 대한 스타일 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
+    background-color: #f2f2f2; /* 배경색 설정 */
+}
+
+/* 섹션 스타일 */
+section {
+    margin: auto;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+form input,  
+form select {
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+}
+
+form input[type="text"]:disabled,
+form input[type="text"]:disabled {
+    background-color: #f4f4f4; /* Disabled input background color */
+    color: #333; /* Disabled input text color */
+}
+
+form input[type="submit"] {
+    color: whitesmoke;
+    padding: 12px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #5BBCFF;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #4ca6e5;
+}
+
+#radio-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#radio-container input[type="radio"] {
+    display: none;
+}
+
+#radio-container label {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.error-container {
+    margin-top: 10px;
+    color: tomato;
+    width: 100%;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.error-msg {
+    display: none;
+}
+
+#error-msg-id, #error-msg-password, #error-msg-email, #error-msg-name,
+#error-msg-birth, #error-msg-birth-pattern, #error-msg-gender, #error-msg-phone,
+#error-msg-phone-pattern {
+    display: block;
+}

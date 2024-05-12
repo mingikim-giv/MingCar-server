@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/style/targetBoard.css">
 </head>
 <c:import url="/header" />
 <body>
 	<section id="root">
 		<div class="container">
-			<h2>${empty targetBoard}</h2>
 			<h2>제목: ${targetBoard.title}</h2>
 			<h4>작성자: ${targetBoard.author}</h4>
 			<h4>작성일: ${targetBoard.regWrite}</h4>

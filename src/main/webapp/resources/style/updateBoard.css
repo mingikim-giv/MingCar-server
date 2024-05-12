@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/* Body에 대한 스타일 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
+    background-color: #f2f2f2; /* 배경색 설정 */
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #333; /* 헤더 배경색 */
+    color: #fff; /* 헤더 글자색 */
+    padding: 10px; /* 헤더 패딩 */
+    text-align: center; /* 헤더 텍스트 정렬 */
+}
+
+/* 섹션 스타일 */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* 상단 여백 조절 */
+}
+
+/* 폼 스타일 */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* 내용에 패딩과 테두리를 포함한 크기 설정 */
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5BBCFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4ca6e5;
+}
