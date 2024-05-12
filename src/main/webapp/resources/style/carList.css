@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+section {
+    margin: auto;   
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+form input,  
+form select {
+    outline: none;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    color: whitesmoke;
+    padding: 12px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #5BBCFF;
+}
+
+form select {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+}
+
+form select:focus {
+    border-color: #5BBCFF;
+}
+
+form > div {
+    margin-top: 20px;
+}
+
+form > div > select {
+    width: 100%;
+    padding: 12px;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+}
+
+form > div > select:focus {
+    border-color: #5BBCFF;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#root img {
+    height: 200px;
+    width: 200px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#root div {
+    margin-top: 10px;
+}
+
+#root button {
+	width: 300px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5BBCFF;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#root button:hover {
+    background-color: #4ca6e5;
+}
