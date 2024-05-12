@@ -69,6 +69,24 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>deleteBoardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.DeleteBoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteBoardFormAction</servlet-name>
+		<url-pattern>/deleteBoardFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateBoardFormAction</servlet-name>
+		<servlet-class>mingCarServer.board.controller.UpdateBoardFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateBoardFormAction</servlet-name>
+		<url-pattern>/updateBoardFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>boardFormAction</servlet-name>
 		<servlet-class>mingCarServer.board.controller.BoardFormAction</servlet-class>
 	</servlet>

@@ -31,6 +31,7 @@ footer {
 footer > div > ul {
 	list-style: none;
 }
+
 #logo:hover {
     opacity: 0.8;
 }

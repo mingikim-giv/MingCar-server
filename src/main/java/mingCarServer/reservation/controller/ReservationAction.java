@@ -44,10 +44,15 @@ public class ReservationAction extends HttpServlet {
 		int targetCarCode = targetCar.getCarCode();
 		
 		String startDate = (String) session.getAttribute("startDate");
+		String startTime = (String) session.getAttribute("startTime");
 		String endDate = (String) session.getAttribute("endDate");
+		String endTime = (String) session.getAttribute("endTime");
 		
-		Timestamp start = Timestamp.valueOf(startDate);
-		Timestamp end = Timestamp.valueOf(endDate);
+		String startTemp = startDate + "" + startTime;
+		String endTemp = endDate + "" + endTime;
+		
+		Timestamp start = Timestamp.valueOf(startTemp);
+		Timestamp end = Timestamp.valueOf(endTemp);
 		
 		String id = user.getId();
 		
