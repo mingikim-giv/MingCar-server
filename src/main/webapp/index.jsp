@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/style/home.css">
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>

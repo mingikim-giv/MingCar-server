@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/style/form.css">
 </head>
 <c:import url="/header" />
 <script src="/resources/script/validation-join.js"></script>
