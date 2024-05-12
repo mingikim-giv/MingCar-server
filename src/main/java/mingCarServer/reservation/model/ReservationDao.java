@@ -1,9 +1,9 @@
 package mingCarServer.reservation.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +28,13 @@ public class ReservationDao {
 		try {
 			conn = DBManager.getConnection();
 			
-			Date startDate = reDto.getStartDate();
-			Date endDate = reDto.getEndDate();
+			Timestamp startDate = reDto.getStartDate();
+			Timestamp endDate = reDto.getEndDate();
 			
 			String sql = "SELECT * FROM reservation WHERE (start_date<=? AND end_date>=?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setDate(1, startDate);
-			pstmt.setDate(2, endDate);
+			pstmt.setTimestamp(1, startDate);
+			pstmt.setTimestamp(2, endDate);
 			
 			rs = pstmt.executeQuery();
 			
@@ -42,8 +42,8 @@ public class ReservationDao {
 				int reserveCode = rs.getInt(1);
 				String id = rs.getString(2);
 				int carCode = rs.getInt(3);
-				Date stDate = rs.getDate(4);
-				Date enDate = rs.getDate(5);
+				Timestamp stDate = rs.getTimestamp(4);
+				Timestamp enDate = rs.getTimestamp(5);
 				String paymentMethod = rs.getString(6);
 				boolean payment = rs.getBoolean(7);
 				
@@ -69,8 +69,8 @@ public class ReservationDao {
 
 			pstmt.setString(1, reservationDto.getId());
 			pstmt.setInt(2, reservationDto.getCarCode());
-			pstmt.setDate(3, reservationDto.getStartDate());
-			pstmt.setDate(4, reservationDto.getEndDate());
+			pstmt.setTimestamp(3, reservationDto.getStartDate());
+			pstmt.setTimestamp(4, reservationDto.getEndDate());
 
 			pstmt.execute();
 			
@@ -100,8 +100,8 @@ public class ReservationDao {
 			while (rs.next()) {
 				String id = rs.getString(1);
 				int carCode = rs.getInt(2);
-				Date startDate = rs.getDate(3);
-				Date endDate = rs.getDate(4);
+				Timestamp startDate = rs.getTimestamp(3);
+				Timestamp endDate = rs.getTimestamp(4);
 				String paymentMethod = rs.getString(5);
 				boolean payment = rs.getBoolean(6);
 

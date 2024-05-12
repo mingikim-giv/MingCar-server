@@ -1,7 +1,7 @@
 package mingCarServer.reservation.controller;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,8 +46,8 @@ public class ReservationAction extends HttpServlet {
 		String startDate = (String) session.getAttribute("startDate");
 		String endDate = (String) session.getAttribute("endDate");
 		
-		Date start = Date.valueOf(startDate);
-		Date end = Date.valueOf(endDate);
+		Timestamp start = Timestamp.valueOf(startDate);
+		Timestamp end = Timestamp.valueOf(endDate);
 		
 		String id = user.getId();
 		

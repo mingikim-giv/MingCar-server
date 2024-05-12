@@ -1,19 +1,19 @@
 package mingCarServer.reservation.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ReservationResponseDto {
 	private int reserveCode;
 	private String id;
 	private int carCode;
-	private Date startDate;
-	private Date endDate;
+	private Timestamp startDate;
+	private Timestamp endDate;
 	private String paymentMethod;
 	private boolean payment;
 	
 	public ReservationResponseDto() {}
-	
-	public ReservationResponseDto(int reserveCode, String id, int carCode, Date startDate, Date endDate,
+
+	public ReservationResponseDto(int reserveCode, String id, int carCode, Timestamp startDate, Timestamp endDate,
 			String paymentMethod, boolean payment) {
 		super();
 		this.reserveCode = reserveCode;
@@ -49,19 +49,19 @@ public class ReservationResponseDto {
 		this.carCode = carCode;
 	}
 
-	public Date getStartDate() {
+	public Timestamp getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Timestamp startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public Timestamp getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(Timestamp endDate) {
 		this.endDate = endDate;
 	}
 

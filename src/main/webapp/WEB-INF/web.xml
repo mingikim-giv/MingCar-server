@@ -195,6 +195,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>createBoardForm</servlet-name>
+		<jsp-file>/views/board/createBoardForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createBoardForm</servlet-name>
+		<url-pattern>/createBoardForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>targetBoardForm</servlet-name>
 		<jsp-file>/views/board/targetBoardForm.jsp</jsp-file>
 	</servlet>
