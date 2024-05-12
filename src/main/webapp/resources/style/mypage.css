@@ -41,3 +41,8 @@ footer {
 footer > div > ul {
 	list-style: none;
 }
+
+section > img {
+	width: 100px;
+	height: 100px;
+}
