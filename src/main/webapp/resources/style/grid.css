@@ -15,6 +15,7 @@ body > header > div#top {
     display: grid;
     grid-template-areas: "h1 nav ul";
     grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
 }
 
 body > header > div#top > h1 {

@@ -75,7 +75,7 @@ public class ReservationDao {
 
 			pstmt.execute();
 			
-			response = findReservationNumber(1);
+			response = findReservationCode(reservationCode());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,7 +86,7 @@ public class ReservationDao {
 		return response;
 	}
 	
-	public ReservationResponseDto findReservationNumber(int resNum) {
+	public ReservationResponseDto findReservationCode(int resNum) {
 		ReservationResponseDto reservation = null;
 		
 		try {
@@ -99,12 +99,12 @@ public class ReservationDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				String id = rs.getString(1);
-				int carCode = rs.getInt(2);
-				Timestamp startDate = rs.getTimestamp(3);
-				Timestamp endDate = rs.getTimestamp(4);
-				String paymentMethod = rs.getString(5);
-				boolean payment = rs.getBoolean(6);
+				String id = rs.getString(2);
+				int carCode = rs.getInt(3);
+				Timestamp startDate = rs.getTimestamp(4);
+				Timestamp endDate = rs.getTimestamp(5);
+				String paymentMethod = rs.getString(6);
+				boolean payment = rs.getBoolean(7);
 
 				reservation = new ReservationResponseDto(resNum, id, carCode, startDate, endDate, paymentMethod, payment);
 			}
@@ -115,5 +115,23 @@ public class ReservationDao {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return reservation;
+	}
+	
+	public int reservationCode() {
+		int reservationCode = -1;
+		
+		try {
+			String sql = "SELECT reserve_code FROM reservation";
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				reservationCode = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return reservationCode;
 	}
 }
