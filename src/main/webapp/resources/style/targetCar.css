@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+section {
+    margin: auto;   
+}
+
+.car-image {
+    height: 200px;
+    width: 200px;
+}
+
+.car-age-passengers-number {
+    display: block;
+    margin-top: 10px;
+}
+
+#reservation-info {
+    margin-top: 20px;
+}
+
+#reservation-info > span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#reservation-info > button {
+	width: 500px;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5BBCFF;
+    color: white;
+    cursor: pointer;
+}
+
+#reservation-info > button:hover {
+    background-color: #4ca6e5;
+}
+
+.error-container {
+    margin: 10px 0 0 0;
+    color: tomato;
+    width: 100%;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+.error-container > p {
+    display: none;
+}
+
+div#target-car {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
