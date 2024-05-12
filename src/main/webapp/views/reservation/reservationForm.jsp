@@ -8,7 +8,7 @@
 <c:import url="/header" />
 <body>
 	<c:choose>
-		<c:when test="${isReservation}">
+		<c:when test="${isValid}">
 			<script type="text/javascript">
 				alert('예약이 완료되었습니다.');
 				window.location = '/';

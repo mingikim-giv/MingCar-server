@@ -19,7 +19,6 @@ import mingCarServer.user.model.UserResponseDto;
 /**
  * Servlet implementation class ReservationAction
  */
-@WebServlet("/ReservationAction")
 public class ReservationAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -66,10 +65,10 @@ public class ReservationAction extends HttpServlet {
 		ReservationResponseDto result = reservationDao.createReservation(reservationDto);
 		
 		if (result == null) {
-			request.setAttribute("isReservation", false);
+			request.setAttribute("isValid", false);
 		} 
 		else {
-			request.setAttribute("isReservation", true);
+			request.setAttribute("isValid", true);
 		}
 		
 		request.getRequestDispatcher("/reservationForm").forward(request,response);
