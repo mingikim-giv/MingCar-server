@@ -26,7 +26,6 @@
 			</div>
 			<input type="submit" value="검색하기">
 		</form>
-		<c:set var="gv80Exist" value="${false}"></c:set>
 		<c:forEach var="car" items="${carList}">
 			<img src="/resources/image/car/gv80.png" style="height=200px; width:300px;" id="logo" onclick="location.href='/targetCar'">
 			<div>차량명: ${car.carName}</div>

@@ -64,7 +64,7 @@ public class ReservationAction extends HttpServlet {
 
 		ReservationDao reservationDao = ReservationDao.getInstance();
 		ReservationResponseDto result = reservationDao.createReservation(reservationDto);
-		System.out.println("result" + result);
+
 		if (result == null) {
 			request.setAttribute("isValid", false);
 		} 
