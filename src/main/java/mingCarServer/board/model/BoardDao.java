@@ -29,7 +29,7 @@ public class BoardDao {
 		try {
 			conn = DBManager.getConnection();
 			
-			String sql = "SELECT board_code, user_id, title, content, author, category, reg_write, mod_write FROM board ORDER BY reg_write DESC";
+			String sql = "SELECT board_code, user_id, title, content, author, category, reg_write, mod_write FROM board ORDER BY WHEN category = 'admin' THEN 1 ELSE 2 END, reg_write ASC";
 			pstmt = conn.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
