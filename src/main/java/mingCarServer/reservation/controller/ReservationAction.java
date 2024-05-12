@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,7 +64,7 @@ public class ReservationAction extends HttpServlet {
 
 		ReservationDao reservationDao = ReservationDao.getInstance();
 		ReservationResponseDto result = reservationDao.createReservation(reservationDto);
-		
+		System.out.println("result" + result);
 		if (result == null) {
 			request.setAttribute("isValid", false);
 		} 
