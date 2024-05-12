@@ -50,6 +50,8 @@ public class ReservationAction extends HttpServlet {
 		String startTemp = startDate + "" + startTime;
 		String endTemp = endDate + "" + endTime;
 		
+		System.out.println("start" + startTemp);
+		System.out.println("end" + endTemp);
 		Timestamp start = Timestamp.valueOf(startTemp);
 		Timestamp end = Timestamp.valueOf(endTemp);
 		

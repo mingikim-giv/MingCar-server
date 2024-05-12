@@ -123,6 +123,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>carSearchAction</servlet-name>
+		<servlet-class>mingCarServer.car.controller.CarSearchAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>carSearchAction</servlet-name>
+		<url-pattern>/carSearchAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>reservationAction</servlet-name>
 		<servlet-class>mingCarServer.reservation.controller.ReservationAction</servlet-class>
 	</servlet>

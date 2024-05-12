@@ -9,7 +9,7 @@
 <c:import url="/header" />
 <body>
 	<section id="root">
-		<form action="/searchCarAction">
+		<form action="/carSearchAction">
 			<select name="search-option" id="search-option">
 				<option value="car-name">차량명</option>
 				<option value="car-seat">인원수</option>
