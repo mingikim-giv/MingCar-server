@@ -58,7 +58,7 @@
 					<img class="car-image" src="/resources/image/car/palisade.png" style="height=200px;width:300px;">
 				</c:when>
 			</c:choose>
-			<span class="car-age-passengers-number">${targetCar.carName} ${targetCar.carType} ○ ${targetCar.carSeat}인승</span>
+			<span class="car-age-passengers-number">차량명: ${targetCar.carName} 차종: ${targetCar.carType} 인원: ${targetCar.carSeat}인승</span>
 		</div>
 		<div id="reservation-info">
 			<form action="/checkReservationAction" id="find-car-by-time">
@@ -104,7 +104,6 @@
 				</select> 
 				<input type="submit" value="예약확정" id="resev-time-button">
 			</form>
-			<span>${startDate} ~ ${endDate} 까지</span>
 			<button onclick="location.href='/reservationAction'">예약확정</button>
 		</div>
 	</section>
