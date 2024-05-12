@@ -64,13 +64,14 @@ public class ReservationDao {
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "INSERT INTO reservation (`user_id`, `car_code`, `start_date`, `end_date`) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO reservation (`user_id`, `car_code`, `payment_method`, `start_date`, `end_date`) VALUES(?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, reservationDto.getId());
 			pstmt.setInt(2, reservationDto.getCarCode());
-			pstmt.setTimestamp(3, reservationDto.getStartDate());
-			pstmt.setTimestamp(4, reservationDto.getEndDate());
+			pstmt.setString(3, reservationDto.getPaymentMethod());
+			pstmt.setTimestamp(4, reservationDto.getStartDate());
+			pstmt.setTimestamp(5, reservationDto.getEndDate());
 
 			pstmt.execute();
 			

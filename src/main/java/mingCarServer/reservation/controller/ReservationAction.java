@@ -42,26 +42,26 @@ public class ReservationAction extends HttpServlet {
 		CarResponseDto targetCar = (CarResponseDto)session.getAttribute("targetCar");
 		int targetCarCode = targetCar.getCarCode();
 		
-		String startDate = (String) session.getAttribute("startDate");
-		String startTime = (String) session.getAttribute("startTime");
-		String endDate = (String) session.getAttribute("endDate");
-		String endTime = (String) session.getAttribute("endTime");
+		String startDate = request.getParameter("startDate");
+		String startTime = request.getParameter("startTime");
+		String endDate = request.getParameter("endDate");
+		String endTime = request.getParameter("endTime");
 		
-		String startTemp = startDate + "" + startTime;
-		String endTemp = endDate + "" + endTime;
+		String startTemp = startDate + " " + startTime;
+		String endTemp = endDate + " " + endTime;
 		
-		System.out.println("start" + startTemp);
-		System.out.println("end" + endTemp);
 		Timestamp start = Timestamp.valueOf(startTemp);
 		Timestamp end = Timestamp.valueOf(endTemp);
 		
 		String id = user.getId();
+		String paymentMethod = request.getParameter("payment");
 		
 		ReservationRequestDto reservationDto = new ReservationRequestDto();
 		reservationDto.setCarCode(targetCarCode);
 		reservationDto.setId(id);
 		reservationDto.setStartDate(start);
 		reservationDto.setEndDate(end);
+		reservationDto.setPaymentMethod(paymentMethod);
 
 		ReservationDao reservationDao = ReservationDao.getInstance();
 		ReservationResponseDto result = reservationDao.createReservation(reservationDto);

@@ -61,9 +61,9 @@
 			<span class="car-age-passengers-number">차량명: ${targetCar.carName} 차종: ${targetCar.carType} 인원: ${targetCar.carSeat}인승</span>
 		</div>
 		<div id="reservation-info">
-			<form action="/checkReservationAction" id="find-car-by-time">
-				<span>대여일</span><input type="date" name="resev-date" id="resev-date" value="${resevDate}"> 
-				<select name="resev-time" id="resev-time">
+			<form action="/reservationAction" id="find-car-by-time">
+				<span>대여일</span><input type="date" name="startDate" id="startDate" value="${startDate}"> 
+				<select name="startTime" id="startTime">
 					<option disabled>대여시간 선택</option>
 					<option value="07:00:00" ${resevTime eq '07:00:00' ? 'selected':''}>07:00</option>
 					<option value="08:00:00" ${resevTime eq '08:00:00' ? 'selected':''}>08:00</option>
@@ -82,8 +82,8 @@
 					<option value="21:00:00" ${resevTime eq '21:00:00' ? 'selected':''}>21:00</option>
 					<option value="22:00:00" ${resevTime eq '22:00:00' ? 'selected':''}>22:00</option>
 				</select> 
-				<span>반납일</span><input type="date" name="return-date" id="return-date" value="${returnDate}"> 
-				<select name="return-time" id="return-time">
+				<span>반납일</span><input type="date" name="endDate" id="endDate" value="${endDate}"> 
+				<select name="endTime" id="endTime">
 					<option disabled >반납시간 선택</option>
 					<option value="06:00:00" ${returnTime eq '06:00:00' ? 'selected':''}>06:00</option>
 					<option value="07:00:00" ${returnTime eq '07:00:00' ? 'selected':''}>07:00</option>
@@ -102,9 +102,15 @@
 					<option value="20:00:00" ${returnTime eq '20:00:00' ? 'selected':''}>20:00</option>
 					<option value="21:00:00" ${returnTime eq '21:00:00' ? 'selected':''}>21:00</option>
 				</select> 
+				<div id="reserve-payment">
+					<h3>결제 수단</h3>
+						<div>
+							<input type="radio" id="payment-card" name="payment" value="카드"> 카드
+							<input type="radio" id="payment-cash" name="payment" value="현금"> 현금
+						</div>
+				</div>
 				<input type="submit" value="예약확정" id="resev-time-button">
 			</form>
-			<button onclick="location.href='/reservationAction'">예약확정</button>
 		</div>
 	</section>
 </body>
