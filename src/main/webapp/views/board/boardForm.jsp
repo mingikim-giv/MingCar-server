@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/style/boardForm.css">
 </head>
 <c:import url="/header" />
 <body>

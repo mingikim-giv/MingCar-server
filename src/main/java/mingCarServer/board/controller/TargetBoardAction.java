@@ -16,7 +16,6 @@ import mingCarServer.board.model.BoardResponseDto;
 /**
  * Servlet implementation class TargetBoardAction
  */
-@WebServlet("/TargetBoardAction")
 public class TargetBoardAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

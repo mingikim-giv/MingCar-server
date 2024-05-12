@@ -16,7 +16,6 @@ import mingCarServer.user.model.UserResponseDto;
 /**
  * Servlet implementation class CreateBoardFormAction
  */
-@WebServlet("/CreateBoardFormAction")
 public class CreateBoardFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
