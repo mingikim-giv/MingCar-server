@@ -7,7 +7,7 @@
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
-	<h1>MingCar</h1>
+	<h1>광고 배너</h1>
 	<img src="/resources/image/car/gv80.png" style="height=200px; width:200px;" id="logo" onclick="location.href='/carFormAction'">
 	<img src="/resources/image/car/g80.png" style="height=200px; width:200px;" id="logo" onclick="location.href='/carFormAction'">
 	<img src="/resources/image/car/sorento.png" style="height=200px; width:200px;" id="logo" onclick="location.href='/carFormAction'">
