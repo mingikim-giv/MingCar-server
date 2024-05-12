@@ -1,13 +1,9 @@
 @charset "UTF-8";
 
-/* Body에 대한 스타일 */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
-    background-color: #f2f2f2; /* 배경색 설정 */
+    margin: auto;
 }
 
-/* 섹션 스타일 */
 section {
     margin: auto;   
     display: flex;
@@ -28,8 +24,8 @@ form select {
 
 form input[type="text"]:disabled,
 form input[type="text"]:disabled {
-    background-color: #f4f4f4; /* Disabled input background color */
-    color: #333; /* Disabled input text color */
+    background-color: #f4f4f4; 
+    color: #333;
 }
 
 form input[type="submit"] {
