@@ -10,12 +10,8 @@
 <body>
 	<section id="root">
 		<form action="/carSearchAction">
-			<select name="search-option" id="search-option">
-				<option value="car-name">차량명</option>
-				<option value="car-seat">인원수</option>
-			</select>
 			<div id="search-value-container">
-				<select name="search-value" id="search-value">
+				<select name="search-type" id="search-type">
 				<option selected disabled>차량크기</option>
 				<option value="1001">경형/소형</option>
 				<option value="1002">준준형</option>

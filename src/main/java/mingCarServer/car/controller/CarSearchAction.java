@@ -34,20 +34,19 @@ public class CarSearchAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		List<CarResponseDto> list =null;
 		HttpSession session = request.getSession();
 		
-		String option = request.getParameter("search-option");
-		String value  = request.getParameter("search-value");
+		String carType = request.getParameter("search-type");
+		
+		session.setAttribute("carType", carType);
 		
 		CarDao carDao = CarDao.getInstance();
 		
-		if(option == null || value.equals("")) {
-			System.out.println("null");
-		}
-		
-		session.setAttribute("carList", list);
-		response.sendRedirect("/carForm");
+		List<CarResponseDto> list = carDao.searchCarType(carType);
+
+		request.setAttribute("list", list);
+
+		request.getRequestDispatcher("/carForm").forward(request, response);
 	}
 
 	/**

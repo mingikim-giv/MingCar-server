@@ -80,4 +80,35 @@ public class CarDao {
 		}
 		return response;
 	}
+	
+	public List<CarResponseDto> searchCarType(String typeTemp) {
+		List<CarResponseDto> list = new ArrayList<CarResponseDto>();
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "SELECT * FROM cars WHERE car_type LIKE ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, typeTemp);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int carCode = rs.getInt(1);
+				String carName = rs.getString(2);
+				int carPrice = rs.getInt(3);
+				String carType = rs.getString(4);
+				int carSeat = rs.getInt(5);
+				boolean reservation = rs.getBoolean(6);
+				
+				CarResponseDto car = new CarResponseDto(carCode, carName, carPrice, carType, carSeat, reservation);
+				list.add(car);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
 }
