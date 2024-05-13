@@ -16,7 +16,6 @@ import mingCarServer.car.model.CarResponseDto;
 /**
  * Servlet implementation class CarSearchAction
  */
-@WebServlet("/CarSearchAction")
 public class CarSearchAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,9 +41,10 @@ public class CarSearchAction extends HttpServlet {
 		
 		CarDao carDao = CarDao.getInstance();
 		
-		List<CarResponseDto> list = carDao.searchCarType(carType);
-
-		request.setAttribute("list", list);
+		List<CarResponseDto> carList = carDao.searchCarType(carType);
+		
+		System.out.println("carList" + carList);
+		request.setAttribute("carList", carList);
 
 		request.getRequestDispatcher("/carForm").forward(request, response);
 	}
