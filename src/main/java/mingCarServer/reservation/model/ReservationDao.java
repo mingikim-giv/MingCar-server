@@ -31,7 +31,7 @@ public class ReservationDao {
 			Timestamp startDate = reDto.getStartDate();
 			Timestamp endDate = reDto.getEndDate();
 			
-			String sql = "SELECT * FROM reservation WHERE (start_date<=? AND end_date>=?)";
+			String sql = "SELECT * FROM reservation WHERE (start_date<=? AND end_date>=?) OR (start_date BETWEEN ? AND ?) OR (end_date BETWEEN ? AND ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setTimestamp(1, startDate);
 			pstmt.setTimestamp(2, endDate);
@@ -133,5 +133,36 @@ public class ReservationDao {
 			e.printStackTrace();
 		}
 		return reservationCode;
+	}
+	
+	public ReservationResponseDto findReservationId(int name) {
+		ReservationResponseDto reservation = null;
+		
+		try {
+			conn = DBManager.getConnection();
+
+			String sql = "SELECT * FROM reservation WHERE `user_id`=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, name);
+			
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				String id = rs.getString(2);
+				int carCode = rs.getInt(3);
+				Timestamp startDate = rs.getTimestamp(4);
+				Timestamp endDate = rs.getTimestamp(5);
+				String paymentMethod = rs.getString(6);
+				boolean payment = rs.getBoolean(7);
+
+				reservation = new ReservationResponseDto(name, id, carCode, startDate, endDate, paymentMethod, payment);
+			}
+			return reservation;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return reservation;
 	}
 }

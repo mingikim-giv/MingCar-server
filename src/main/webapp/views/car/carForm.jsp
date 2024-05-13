@@ -13,11 +13,12 @@
 			<div id="search-type-container">
 				<select name="search-type" id="search-type">
 				<option selected disabled>차량크기</option>
-				<option value="1001">경형/소형</option>
-				<option value="1002">준준형</option>
-				<option value="1003">중형</option>
-				<option value="1004">준대형</option>
-				<option value="1005">대형</option>				
+				<option value="경형">경형</option>
+				<option value="소형">소형</option>
+				<option value="준준형">준준형</option>
+				<option value="중형">중형</option>
+				<option value="준대형">준대형</option>
+				<option value="대형">대형</option>			
 			</select>
 			</div>
 			<input type="submit" value="검색하기">

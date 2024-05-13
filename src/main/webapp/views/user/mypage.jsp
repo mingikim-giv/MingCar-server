@@ -14,6 +14,27 @@
 		
 		<button onclick="location.href='/updateUser'">회원정보 수정</button>
 		<button onclick="location.href='/deleteUserForm'">회원 탈퇴</button>
+		<h3>예약 현황</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>예약 코드</th>
+						<th>이름</th>
+						<th>대여날짜</th>
+						<th>반납일자</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="reservation" items="${reserveList}">
+						<tr>
+							<td>${reservation.reserveCode}</td>
+							<td>${reservation.id}</td>
+							<td>${reservation.startDate}</td>
+							<td>${reservation.endDate}</td>	
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 	</section>
 </body>
 <c:import url="/footer" />
