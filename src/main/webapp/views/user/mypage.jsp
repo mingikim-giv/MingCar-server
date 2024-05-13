@@ -19,18 +19,18 @@
 				<thead>
 					<tr>
 						<th>예약 코드</th>
-						<th>이름</th>
-						<th>대여날짜</th>
-						<th>반납일자</th>
+						<th>대여 날짜</th>
+						<th>반납 일자</th>
+						<th>결재 방법</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="reservation" items="${reserveList}">
 						<tr>
 							<td>${reservation.reserveCode}</td>
-							<td>${reservation.id}</td>
 							<td>${reservation.startDate}</td>
 							<td>${reservation.endDate}</td>	
+							<td>${reservation.paymentMethod}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
