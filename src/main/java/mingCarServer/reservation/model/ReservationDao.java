@@ -135,7 +135,7 @@ public class ReservationDao {
 		return reservationCode;
 	}
 	
-	public ReservationResponseDto findReservationId(int name) {
+	public ReservationResponseDto findReservationId(int reCode) {
 		ReservationResponseDto reservation = null;
 		
 		try {
@@ -143,7 +143,7 @@ public class ReservationDao {
 
 			String sql = "SELECT * FROM reservation WHERE `user_id`=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, name);
+			pstmt.setInt(1, reCode);
 			
 			rs = pstmt.executeQuery();
 
@@ -155,7 +155,7 @@ public class ReservationDao {
 				String paymentMethod = rs.getString(6);
 				boolean payment = rs.getBoolean(7);
 
-				reservation = new ReservationResponseDto(name, id, carCode, startDate, endDate, paymentMethod, payment);
+				reservation = new ReservationResponseDto(reCode, id, carCode, startDate, endDate, paymentMethod, payment);
 			}
 			return reservation;
 		} catch (Exception e) {

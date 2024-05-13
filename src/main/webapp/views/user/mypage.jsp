@@ -25,14 +25,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="reservation" items="${reserveList}">
-						<tr>
-							<td>${reservation.reserveCode}</td>
-							<td>${reservation.startDate}</td>
-							<td>${reservation.endDate}</td>	
-							<td>${reservation.paymentMethod}</td>
-						</tr>
-					</c:forEach>
+					<section id="reservation-check">
+						<c:import url="/findReservationAction" />
+					</section>
 				</tbody>
 			</table>
 	</section>

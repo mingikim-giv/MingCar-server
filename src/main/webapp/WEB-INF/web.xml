@@ -141,6 +141,15 @@
 	</servlet-mapping>
   	
 	<servlet>
+		<servlet-name>findReservationAction</servlet-name>
+		<servlet-class>mingCarServer.reservation.controller.FindReservationAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>findReservationAction</servlet-name>
+		<url-pattern>/findReservationAction</url-pattern>
+	</servlet-mapping>
+  	
+	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>
 	</servlet>
