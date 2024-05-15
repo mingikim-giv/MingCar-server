@@ -22,6 +22,7 @@
 						<th>대여 날짜</th>
 						<th>반납 일자</th>
 						<th>결재 방법</th>
+						<th>예약 변경</th>
 					</tr>
 				</thead>
 				<tbody>
