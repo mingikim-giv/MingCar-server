@@ -33,9 +33,26 @@ public class FindReservationAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
-		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+		ReservationDao reservationDao = ReservationDao.getInstance();
+
+		if(session.getAttribute("user") == null)
+			response.sendRedirect("/login");
+		else {
+			UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+			
+			String id = (String) user.getId();
+			
+			List<ReservationResponseDto> reserveList = reservationDao.findReservationId(id);
+			System.out.println("reserveList : "+reserveList);
+			
+			request.setAttribute("reserveList", reserveList);
+			
+			request.getRequestDispatcher("/mypage").forward(request, response);
+			
+		}
 		
 		
 	}

@@ -25,9 +25,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<section id="reservation-check">
-						<c:import url="/findReservationAction" />
-					</section>
+					<c:forEach var="reserve" items="${reserveList }">
+						<td>
+							<a href="/read/car?code=${reserve.carCode }">
+								<div>${reserve.number}</div>
+							</a>
+		                </td>
+					</c:forEach>
 				</tbody>
 			</table>
 	</section>

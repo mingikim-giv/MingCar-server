@@ -3,6 +3,7 @@ package mingCarServer.reservation.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +106,7 @@ public class ReservationDao {
 				Timestamp endDate = rs.getTimestamp(5);
 				String paymentMethod = rs.getString(6);
 				boolean payment = rs.getBoolean(7);
-
+				
 				reservation = new ReservationResponseDto(resNum, id, carCode, startDate, endDate, paymentMethod, payment);
 			}
 			return reservation;
@@ -135,34 +136,81 @@ public class ReservationDao {
 		return reservationCode;
 	}
 	
-	public ReservationResponseDto findReservationId(int reCode) {
-		ReservationResponseDto reservation = null;
+	public List<ReservationResponseDto> findReservationId(String value) {
+		List<ReservationResponseDto> list = new ArrayList<ReservationResponseDto>();
 		
 		try {
 			conn = DBManager.getConnection();
 
 			String sql = "SELECT * FROM reservation WHERE `user_id`=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, reCode);
+			pstmt.setString(1, value);
 			
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+				int reCode = rs.getInt(1);
 				String id = rs.getString(2);
 				int carCode = rs.getInt(3);
 				Timestamp startDate = rs.getTimestamp(4);
 				Timestamp endDate = rs.getTimestamp(5);
 				String paymentMethod = rs.getString(6);
 				boolean payment = rs.getBoolean(7);
-
-				reservation = new ReservationResponseDto(reCode, id, carCode, startDate, endDate, paymentMethod, payment);
+				
+				ReservationResponseDto reservation = new ReservationResponseDto(reCode, id, carCode, startDate, endDate, paymentMethod, payment);
+				list.add(reservation);
 			}
-			return reservation;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
-		return reservation;
+		return list;
+	}
+	
+	public ReservationResponseDto updateReservation(ReservationRequestDto reDto) {
+		ReservationResponseDto response = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "UPDATE reservation SET start_date=?, end_date=? WHERE reserve_code=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setTimestamp(1, reDto.getStartDate());
+			pstmt.setTimestamp(2, reDto.getEndDate());
+			pstmt.setInt(3, reDto.getReserveCode());
+			
+			pstmt.execute();
+			
+			response = new ReservationResponseDto();
+			response.setStartDate(reDto.getStartDate());
+			response.setEndDate(reDto.getEndDate());;
+			response.setReserveCode(reDto.getReserveCode());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		return response;
+	}
+	
+	public boolean deleteReservation(int reCode) {
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			String sql = "DELETE FROM reservation WHERE reserve_code=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, reCode);
+			pstmt.execute();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		return false;
 	}
 }
