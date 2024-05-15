@@ -46,6 +46,11 @@ public class ReservationAction extends HttpServlet {
 		String endDate = request.getParameter("endDate");
 		String endTime = request.getParameter("endTime");
 		
+		System.out.println("startDate" + startDate);
+		System.out.println("startTime" + startTime);
+		System.out.println("endDate" + endDate);
+		System.out.println("endTime" + endTime);
+		
 		String startTemp = startDate + " " + startTime;
 		String endTemp = endDate + " " + endTime;
 		
