@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/resources/style/targetCar.css">
 </head>
 <c:import url="/header" />
+<script src="/resources/script/validation-confirmed.js"></script>
 <body>
 	<section id="root">
 		<div id="target-car">
