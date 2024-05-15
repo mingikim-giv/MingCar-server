@@ -26,11 +26,16 @@
 				</thead>
 				<tbody>
 					<c:forEach var="reserve" items="${reserveList }">
-						<td>
-							<a href="/read/car?code=${reserve.carCode }">
-								<div>${reserve.number}</div>
-							</a>
-		                </td>
+						<tr>
+							<td>${reserve.reserveCode}</td>
+							<td>${reserve.startDate}</td>
+							<td>${reserve.endDate}</td>
+							<td>${reserve.paymentMethod}</td>
+		                	<td>
+		                		<button>수정</button>
+		                		<button>예약 취소</button>
+		                	</td>
+		                </tr>
 					</c:forEach>
 				</tbody>
 			</table>

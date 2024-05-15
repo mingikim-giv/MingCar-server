@@ -15,7 +15,7 @@
 			<h1><a href="/">Ming Car</a></h1>
 			<nav>
 				<ul>
-					<li><a href="/mypage">마이 페이지</a></li>
+					<li><a href="/findReservationAction">마이 페이지</a></li>
 					<li><a href="/carFormAction">예약</a></li>
 					<li><a href="/boardFormAction">게시판</a></li> 
 				</ul>
