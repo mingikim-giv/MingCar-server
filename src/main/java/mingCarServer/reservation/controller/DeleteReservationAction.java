@@ -33,7 +33,7 @@ public class DeleteReservationAction extends HttpServlet {
 		ReservationDao resevDao = ReservationDao.getInstance();
 		resevDao.deleteReservation(reCode);
 		
-		response.sendRedirect("/mypage");
+		response.sendRedirect("/findReservationAction");
 	}
 
 	/**

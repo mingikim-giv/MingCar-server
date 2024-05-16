@@ -19,6 +19,7 @@
 				<thead>
 					<tr>
 						<th>예약 코드</th>
+						<th>차량 코드</th>
 						<th>대여 날짜</th>
 						<th>반납 일자</th>
 						<th>결재 방법</th>
@@ -29,12 +30,13 @@
 					<c:forEach var="reserve" items="${reserveList }">
 						<tr>
 							<td>${reserve.reserveCode}</td>
+							<td>${reserve.carCode}</td>
 							<td>${reserve.startDate}</td>
 							<td>${reserve.endDate}</td>
 							<td>${reserve.paymentMethod}</td>
 		                	<td>
 		                		<button>수정</button>
-		                		<button>예약 취소</button>
+		                		<button onclick="location.href='/deleteReservationAction?reCode=${reserve.reserveCode}'">예약 취소</button>
 		                	</td>
 		                </tr>
 					</c:forEach>
