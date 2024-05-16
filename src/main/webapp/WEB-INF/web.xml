@@ -148,6 +148,24 @@
 		<servlet-name>findReservationAction</servlet-name>
 		<url-pattern>/findReservationAction</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateReservationAction</servlet-name>
+		<servlet-class>mingCarServer.reservation.controller.UpdateReservationAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateReservationAction</servlet-name>
+		<url-pattern>/updateReservationAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deleteReservationAction</servlet-name>
+		<servlet-class>mingCarServer.reservation.controller.DeleteReservationAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteReservationAction</servlet-name>
+		<url-pattern>/deleteReservationAction</url-pattern>
+	</servlet-mapping>
   	
 	<servlet>
 		<servlet-name>header</servlet-name>
