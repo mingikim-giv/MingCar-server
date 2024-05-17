@@ -53,11 +53,11 @@ public class UpdateReservationAction extends HttpServlet {
 		int carCode = reservation.getCarCode();
 		
 		CarDao carDao = CarDao.getInstance();
-//		CarResponseDto targetCar = carDao.findCarByCarNumber(carCode);
+		CarResponseDto targetCar = carDao.findCarByCarNumber(carCode + "");
 		
 		HttpSession session = request.getSession();
 		
-//		session.setAttribute("targetCar", targetCar);
+		session.setAttribute("targetCar", targetCar);
 		session.setAttribute("resevDate", resevDate);
 		session.setAttribute("returnDate", returnDate);
 		session.setAttribute("resevTime", resevTime);

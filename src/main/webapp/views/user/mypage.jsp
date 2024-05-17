@@ -35,7 +35,7 @@
 							<td>${reserve.endDate}</td>
 							<td>${reserve.paymentMethod}</td>
 		                	<td>
-		                		<button>수정</button>
+		                		<button onclick="location.href='/updateReservationAction?reCode=${reserve.reserveCode}'">수정</button>
 		                		<button onclick="location.href='/deleteReservationAction?reCode=${reserve.reserveCode}'">예약 취소</button>
 		                	</td>
 		                </tr>
