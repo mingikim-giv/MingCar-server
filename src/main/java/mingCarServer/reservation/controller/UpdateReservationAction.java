@@ -64,7 +64,7 @@ public class UpdateReservationAction extends HttpServlet {
 		session.setAttribute("returnTime", returnTime);
 		session.setAttribute("targetReservation", reCode);
 		
-		response.sendRedirect("/carDetail");
+		response.sendRedirect("/targetCar");
 	}
 
 	/**

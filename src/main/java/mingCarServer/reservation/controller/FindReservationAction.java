@@ -46,7 +46,6 @@ public class FindReservationAction extends HttpServlet {
 			String id = (String) user.getId();
 			
 			List<ReservationResponseDto> reserveList = reservationDao.findReservationId(id);
-			System.out.println("reserveList : "+reserveList);
 			
 			request.setAttribute("reserveList", reserveList);
 			
