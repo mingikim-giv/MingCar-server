@@ -34,8 +34,8 @@ public class UpdateReservationAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		String temp = request.getParameter("reCode");
-	
 		int reCode = Integer.parseInt(temp);
 		
 		ReservationDao reservationDao = ReservationDao.getInstance();
