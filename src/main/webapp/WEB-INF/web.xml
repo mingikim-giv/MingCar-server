@@ -301,4 +301,13 @@
 		<servlet-name>targetCar</servlet-name>
 		<url-pattern>/targetCar</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateReservationForm</servlet-name>
+		<jsp-file>/views/reservation/updateReservationForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateReservationForm</servlet-name>
+		<url-pattern>/updateReservationForm</url-pattern>
+	</servlet-mapping>
 </web-app>
