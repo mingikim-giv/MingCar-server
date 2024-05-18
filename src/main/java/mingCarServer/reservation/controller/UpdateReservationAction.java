@@ -36,7 +36,9 @@ public class UpdateReservationAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String temp = request.getParameter("reCode");
+		System.out.println("temp" + temp);
 		int reCode = Integer.parseInt(temp);
+		System.out.println("reCode" + reCode);
 		
 		ReservationDao reservationDao = ReservationDao.getInstance();
 		ReservationResponseDto reservation = reservationDao.findReservationCode(reCode);
@@ -64,7 +66,7 @@ public class UpdateReservationAction extends HttpServlet {
 		session.setAttribute("returnTime", returnTime);
 		session.setAttribute("targetReservation", reCode);
 		
-		response.sendRedirect("/targetCar");
+		response.sendRedirect("/updateReservationForm");
 	}
 
 	/**

@@ -166,7 +166,16 @@
 		<servlet-name>deleteReservationAction</servlet-name>
 		<url-pattern>/deleteReservationAction</url-pattern>
 	</servlet-mapping>
-  	
+	
+	<servlet>
+		<servlet-name>reservationUpdateFormAction</servlet-name>
+		<servlet-class>mingCarServer.reservation.controller.UpdateFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reservationUpdateFormAction</servlet-name>
+		<url-pattern>/reservationUpdateFormAction</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>

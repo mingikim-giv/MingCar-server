@@ -168,30 +168,24 @@ public class ReservationDao {
 		return list;
 	}
 	
-	public ReservationResponseDto updateReservation(ReservationRequestDto reDto) {
-		ReservationResponseDto response = null;
-		
+	public boolean updateReservation(int reCode, Timestamp startDate, Timestamp endDate) {
 		try {
 			conn = DBManager.getConnection();
 			
 			String sql = "UPDATE reservation SET start_date=?, end_date=? WHERE reserve_code=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setTimestamp(1, reDto.getStartDate());
-			pstmt.setTimestamp(2, reDto.getEndDate());
-			pstmt.setInt(3, reDto.getReserveCode());
+			pstmt.setTimestamp(1, startDate);
+			pstmt.setTimestamp(2, endDate);
+			pstmt.setInt(3, reCode);
 			
 			pstmt.execute();
-			
-			response = new ReservationResponseDto();
-			response.setStartDate(reDto.getStartDate());
-			response.setEndDate(reDto.getEndDate());;
-			response.setReserveCode(reDto.getReserveCode());
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			DBManager.close(conn, pstmt);
 		}
-		return response;
+		return false;
 	}
 	
 	public boolean deleteReservation(int reCode) {
